@@ -1,0 +1,38 @@
+{
+  "_doc": "Récit généré par l'API Claude (Messages API). Un appel par mission, après la résolution ; le jeu n'attend jamais la réponse pour afficher l'issue. En cas d'échec réseau, de JSON invalide ou de délai dépassé, le repli local tire un gabarit ci-dessous.",
+  "api": {
+    "endpoint": "https://api.anthropic.com/v1/messages",
+    "model": "claude-haiku-5-5",
+    "max_tokens": 400,
+    "timeoutMs": 8000,
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01",
+      "anthropic-dangerous-direct-browser-access": "true"
+    },
+    "_keyDoc": "Clé saisie une fois dans les réglages et stockée en local (usage strictement personnel). Alternative plus sûre : un petit relais (Cloudflare Worker) qui ajoute la clé côté serveur."
+  },
+  "report": {
+    "system": "Tu es le terminal de débrief d'une équipe de runners dans LOW END, une mégapole cyberpunk inventée. Tu reçois en JSON les faits d'une mission déjà résolue par le moteur du jeu. Écris le rapport de mission.\n\nRègles :\n- Français, passé composé, ton sec et imagé de rapport de mission ; pas de jargon technique de jeu.\n- 2 ou 3 phrases, 70 mots au plus.\n- Les faits sont intangibles : l'issue, les noms des runners, le quartier, la cible, les blessés et le butin doivent correspondre exactement aux données. N'ajoute ni mort, ni capture, ni butin.\n- Tu peux inventer des détails sensoriels et des péripéties, à condition qu'ils expliquent l'issue.\n- Nomme chaque blessé et fais comprendre pourquoi il est touché.\n- Issue « partial » : l'objectif est à moitié atteint ; « fail » : l'équipe se replie sans l'objectif ; « critSuccess » : un coup d'éclat ; « critFail » : un désastre, mais tout le monde rentre.\n- Si jet.modVaincu vaut true, glisse un instant où tout s'aligne (un signal, un timing parfait, une seconde de grâce), sans jamais parler de musique, d'instrument ou d'entraînement.\n- Ne cite aucun chiffre (dés, difficulté, marge, crédits), aucune marque ni œuvre existante.\n- Si contrat.petitBoulot vaut true, une seule phrase suffit.\n\nRéponds uniquement avec un objet JSON, sans texte autour : {\"titre\": \"6 mots au plus\", \"rapport\": \"le texte\"}.",
+    "userTemplate": "Faits de la mission :\n{{json}}"
+  },
+  "codex": {
+    "system": "Tu écris les fragments du codex de LOW END, une mégapole cyberpunk inventée. On te donne l'état de la ville (quartiers révélés, factions, runners) et un sujet. Écris un fragment de 2 à 4 phrases, en français, sous forme de document trouvé (message intercepté, rumeur, archive, graffiti, émission pirate). Il enrichit le monde sans contredire les faits donnés et sans révéler les quartiers encore verrouillés. Aucune marque ni œuvre existante, aucune mention de musique réelle. Réponds uniquement en JSON : {\"titre\": \"...\", \"forme\": \"...\", \"texte\": \"...\"}.",
+    "userTemplate": "Ville :\n{{city}}\nÉvénement déclencheur : {{event}}\nSujet : {{subject}}"
+  },
+  "epilogue": {
+    "system": "Tu écris l'épilogue de la saison de LOW END après le Grand Coup. On te donne le résumé de la saison (quartiers, factions, runners, nombre de missions, moments marquants tirés du journal). Écris 5 à 7 phrases en français, au passé, qui referment l'histoire de cette équipe et de cette ville. Réponds uniquement en JSON : {\"titre\": \"...\", \"texte\": \"...\"}.",
+    "userTemplate": "Saison :\n{{json}}"
+  },
+  "fallback": {
+    "_doc": "Gabarits hors ligne. Variables : {quartier} {cible} {meneur} {blesse} {butin}. Une phrase tirée par ligne présente, dans l'ordre.",
+    "critSuccess": ["Coup d'éclat dans {quartier} : {cible}, c'est réglé avant même que l'alarme ne sonne.", "{meneur} a ouvert la voie, et l'équipe est passée comme une ombre sur {cible}."],
+    "success": ["Contrat rempli dans {quartier} : {cible}, c'est fait.", "{meneur} a tenu le rythme du début à la fin sur {cible}.", "Rien de propre, rien de raté : {cible} est tombé et l'équipe est rentrée."],
+    "partial": ["À moitié seulement : {cible} a résisté plus que prévu dans {quartier}.", "{meneur} a sauvé ce qui pouvait l'être avant le repli."],
+    "fail": ["Repli dans {quartier} : {cible} était mieux gardé qu'annoncé.", "L'équipe est rentrée les mains vides."],
+    "critFail": ["Tout a lâché en même temps dans {quartier}.", "L'équipe s'est dispersée, et {cible} est resté hors d'atteinte."],
+    "injury": ["{blesse} a pris le coup le plus dur et file à l'infirmerie."],
+    "loot": ["Dans le sac au retour : {butin}."],
+    "gig": ["Petit boulot bouclé sans histoire dans {quartier}.", "Une course rapide dans {quartier}, payée cash."]
+  }
+}

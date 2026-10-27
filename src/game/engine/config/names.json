@@ -1,0 +1,10 @@
+{
+  "_doc": "Noms de runners : Prénom « Pseudo » Nom. Combinaisons : 40 x 48 x 40 = 76 800.",
+  "first": ["Mira", "Ilan", "Nadia", "Joss", "Ayo", "Lena", "Teo", "Sacha", "Imane", "Kofi", "Yuna", "Rafa", "Elsa", "Bilal", "Noor", "Quentin", "Ines", "Dario", "Maëlle", "Tomas", "Zoé", "Karim", "Aïko", "Lior", "Selma", "Oskar", "Priya", "Malo", "Hanae", "Viktor", "Anouk", "Jalil", "Rosa", "Ezra", "Cléo", "Idris", "Lou", "Mateo", "Suki", "Wendel"],
+  "handles": ["Ozone", "Vex", "Kaïn", "Sable", "Jinx", "Orchidée", "Rook", "Mirage", "Dax", "Lune", "Talon", "Cendre", "Hex", "Nova", "Prisme", "Rivet", "Sirène", "Volt", "Zéro", "Écho", "Fable", "Glitch", "Mamba", "Néon", "Pixel", "Quartz", "Rouille", "Spectre", "Tarot", "Ulti", "Vortex", "Wasabi", "Xénon", "Yoyo", "Zinc", "Bémol", "Dièse", "Grave", "Larsen", "Fuzz", "Frette", "Slap", "Chorus", "Riff", "Torque", "Ombre", "Chrome", "Pulse"],
+  "last": ["Okafor", "Varga", "Mbaye", "Kowalski", "Tanaka", "Delacroix", "Ferreira", "Haddad", "Lindqvist", "Nguyen", "Rossi", "Sato", "Benali", "Moreau", "Ivanova", "Adeyemi", "Castillo", "Duval", "Ekström", "Fontaine", "Garnier", "Hoffmann", "Iqbal", "Jansen", "Kaur", "Leclerc", "Mendes", "Novak", "Oyelaran", "Petit", "Quintero", "Rahmani", "Silva", "Traoré", "Umarov", "Vidal", "Weiss", "Xu", "Yilmaz", "Zamora"],
+  "codex": {
+    "_doc": "Ingrédients pour les fragments de récit (sujets passés à l'API Claude).",
+    "subjects": ["une rumeur sur la faction du quartier", "un souvenir d'un runner", "un message intercepté", "une légende urbaine", "une archive effacée", "un graffiti récurrent", "une émission de radio pirate", "un rapport de police falsifié"]
+  }
+}

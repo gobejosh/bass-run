@@ -1,0 +1,389 @@
+{
+  "_doc": "Affixes tirés selon la rareté (Récup 0, Street 1, Corpo 2, Prototype 3, Fantôme 3 + signature). Un objet porte au plus un préfixe ; les autres affixes sont des suffixes. Valeur d'un affixe de stat = base + perTier x palier, arrondie à 0,5. Les affixes à effet fixe gardent leur valeur. weight = fréquence relative.",
+  "prefixes": [
+    {
+      "id": "p_blinde",
+      "forms": {
+        "m": "blindé",
+        "f": "blindée",
+        "mp": "blindés",
+        "fp": "blindées"
+      },
+      "weight": 10,
+      "effect": {
+        "kind": "stat",
+        "stat": "CBT",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "p_crypte",
+      "forms": {
+        "m": "crypté",
+        "f": "cryptée",
+        "mp": "cryptés",
+        "fp": "cryptées"
+      },
+      "weight": 10,
+      "effect": {
+        "kind": "stat",
+        "stat": "PIR",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "p_modulaire",
+      "forms": {
+        "m": "modulaire",
+        "f": "modulaire",
+        "mp": "modulaires",
+        "fp": "modulaires"
+      },
+      "weight": 10,
+      "effect": {
+        "kind": "stat",
+        "stat": "MAT",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "p_soyeux",
+      "forms": {
+        "m": "soyeux",
+        "f": "soyeuse",
+        "mp": "soyeux",
+        "fp": "soyeuses"
+      },
+      "weight": 10,
+      "effect": {
+        "kind": "stat",
+        "stat": "SOC",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "p_militaire",
+      "forms": {
+        "m": "militaire",
+        "f": "militaire",
+        "mp": "militaires",
+        "fp": "militaires"
+      },
+      "weight": 5,
+      "effect": {
+        "kind": "stat",
+        "stat": "all",
+        "base": 0.25,
+        "perTier": 0.25
+      }
+    },
+    {
+      "id": "p_muet",
+      "forms": {
+        "m": "muet",
+        "f": "muette",
+        "mp": "muets",
+        "fp": "muettes"
+      },
+      "weight": 3,
+      "effect": {
+        "kind": "stealth",
+        "value": 1
+      }
+    },
+    {
+      "id": "p_chanceux",
+      "forms": {
+        "m": "porte-bonheur",
+        "f": "porte-bonheur",
+        "mp": "porte-bonheur",
+        "fp": "porte-bonheur"
+      },
+      "weight": 3,
+      "effect": {
+        "kind": "critRange",
+        "value": 1
+      }
+    }
+  ],
+  "suffixes": [
+    {
+      "id": "s_lame",
+      "name": "du Tranchant",
+      "weight": 8,
+      "effect": {
+        "kind": "stat",
+        "stat": "CBT",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "s_code",
+      "name": "du Code Mort",
+      "weight": 8,
+      "effect": {
+        "kind": "stat",
+        "stat": "PIR",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "s_soudure",
+      "name": "de la Soudure",
+      "weight": 8,
+      "effect": {
+        "kind": "stat",
+        "stat": "MAT",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "s_velours",
+      "name": "du Velours",
+      "weight": 8,
+      "effect": {
+        "kind": "stat",
+        "stat": "SOC",
+        "base": 0.5,
+        "perTier": 0.6
+      }
+    },
+    {
+      "id": "s_breche",
+      "name": "de la Brèche",
+      "weight": 4,
+      "effect": {
+        "kind": "roll",
+        "value": 2,
+        "when": {
+          "type": "piratage"
+        }
+      }
+    },
+    {
+      "id": "s_escorte",
+      "name": "de l'Escorte",
+      "weight": 4,
+      "effect": {
+        "kind": "roll",
+        "value": 2,
+        "when": {
+          "type": "extraction"
+        }
+      }
+    },
+    {
+      "id": "s_masque",
+      "name": "du Masque",
+      "weight": 4,
+      "effect": {
+        "kind": "roll",
+        "value": 2,
+        "when": {
+          "type": "infiltration"
+        }
+      }
+    },
+    {
+      "id": "s_assaut",
+      "name": "de l'Assaut",
+      "weight": 4,
+      "effect": {
+        "kind": "roll",
+        "value": 2,
+        "when": {
+          "type": "assaut"
+        }
+      }
+    },
+    {
+      "id": "s_meute",
+      "name": "de la Meute",
+      "weight": 4,
+      "effect": {
+        "kind": "supportCoef",
+        "value": 0.1
+      }
+    },
+    {
+      "id": "s_suture",
+      "name": "de la Suture",
+      "weight": 4,
+      "effect": {
+        "kind": "injuryDuration",
+        "value": -1
+      }
+    },
+    {
+      "id": "s_ecole",
+      "name": "de l'Apprenti",
+      "weight": 4,
+      "effect": {
+        "kind": "xpMult",
+        "value": 0.1
+      }
+    },
+    {
+      "id": "s_eddies",
+      "name": "des Eddies",
+      "weight": 4,
+      "effect": {
+        "kind": "creditMult",
+        "value": 0.1
+      }
+    },
+    {
+      "id": "s_renom",
+      "name": "du Renom",
+      "weight": 3,
+      "effect": {
+        "kind": "repMult",
+        "value": 0.08
+      }
+    },
+    {
+      "id": "s_ange",
+      "name": "de l'Ange Gardien",
+      "weight": 3,
+      "effect": {
+        "kind": "injuryAvoid",
+        "value": 0.2
+      }
+    }
+  ],
+  "signatures": {
+    "_doc": "Objets Fantôme : un nom propre tiré des deux listes et un effet signature unique en plus des 3 affixes.",
+    "names1": [
+      "Note",
+      "Ligne",
+      "Grille",
+      "Mesure",
+      "Quinte",
+      "Chorus",
+      "Triton",
+      "Basse",
+      "Cadence",
+      "Ostinato",
+      "Coda",
+      "Pulse"
+    ],
+    "names2": [
+      "Fantôme",
+      "Morte",
+      "Perdue",
+      "Noire",
+      "Diminuée",
+      "Continue",
+      "Fêlée",
+      "Sans Retour",
+      "de Minuit",
+      "Statique",
+      "Brûlée",
+      "Inversée"
+    ],
+    "effects": [
+      {
+        "id": "sig_contretemps",
+        "desc": "Succès critique dès 17 au jet.",
+        "effects": [
+          {
+            "kind": "critRange",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "id": "sig_walking",
+        "desc": "+3 au jet, quel que soit le contrat.",
+        "effects": [
+          {
+            "kind": "roll",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "id": "sig_unisson",
+        "desc": "Soutien compté à 55 % au lieu de 40 %.",
+        "effects": [
+          {
+            "kind": "supportCoef",
+            "value": 0.15
+          }
+        ]
+      },
+      {
+        "id": "sig_silence",
+        "desc": "Ne compte jamais dans l'exposition ; +1 au jet.",
+        "effects": [
+          {
+            "kind": "stealth",
+            "value": 1
+          },
+          {
+            "kind": "roll",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "id": "sig_soliste",
+        "desc": "+4 au jet si l'équipe compte 2 runners ou moins.",
+        "effects": [
+          {
+            "kind": "roll",
+            "value": 4,
+            "when": {
+              "crewMax": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "sig_metronome",
+        "desc": "Échec critique impossible.",
+        "effects": [
+          {
+            "kind": "fumbleRange",
+            "value": -9
+          }
+        ]
+      },
+      {
+        "id": "sig_reprise",
+        "desc": "Blessures réduites de 2 blocs ; 40 % d'y échapper.",
+        "effects": [
+          {
+            "kind": "injuryDuration",
+            "value": -2
+          },
+          {
+            "kind": "injuryAvoid",
+            "value": 0.4
+          }
+        ]
+      },
+      {
+        "id": "sig_cachet",
+        "desc": "+25 % de crédits et de réputation.",
+        "effects": [
+          {
+            "kind": "creditMult",
+            "value": 0.25
+          },
+          {
+            "kind": "repMult",
+            "value": 0.25
+          }
+        ]
+      }
+    ]
+  }
+}

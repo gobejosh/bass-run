@@ -1,0 +1,29 @@
+{
+  "_doc": "Rôles des runners. base = stats au niveau 1 ; growth = gain par niveau (multiplié par le potentiel de rareté et les traits).",
+  "roles": [
+    {
+      "id": "netrunner", "name": "Netrunner", "glyph": "hex",
+      "primary": "PIR", "secondary": "MAT",
+      "base":   { "PIR": 6, "MAT": 3, "CBT": 1, "SOC": 1.5 },
+      "growth": { "PIR": 1.0, "MAT": 0.5, "CBT": 0.15, "SOC": 0.25 }
+    },
+    {
+      "id": "solo", "name": "Solo", "glyph": "blade",
+      "primary": "CBT", "secondary": "SOC",
+      "base":   { "CBT": 6, "SOC": 3, "PIR": 1, "MAT": 1.5 },
+      "growth": { "CBT": 1.0, "SOC": 0.5, "PIR": 0.15, "MAT": 0.25 }
+    },
+    {
+      "id": "techie", "name": "Techie", "glyph": "gear",
+      "primary": "MAT", "secondary": "CBT",
+      "base":   { "MAT": 6, "CBT": 3, "SOC": 1, "PIR": 1.5 },
+      "growth": { "MAT": 1.0, "CBT": 0.5, "SOC": 0.15, "PIR": 0.25 }
+    },
+    {
+      "id": "face", "name": "Face", "glyph": "mask",
+      "primary": "SOC", "secondary": "PIR",
+      "base":   { "SOC": 6, "PIR": 3, "MAT": 1, "CBT": 1.5 },
+      "growth": { "SOC": 1.0, "PIR": 0.5, "MAT": 0.15, "CBT": 0.25 }
+    }
+  ]
+}

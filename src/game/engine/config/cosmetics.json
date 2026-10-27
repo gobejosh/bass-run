@@ -1,0 +1,11 @@
+{
+  "_doc": "Cosmétiques achetés à l'aveugle avec les crédits, sans aucun effet de jeu. Chaque achat tire une graine ; le SVG est généré à partir de la graine et des paramètres de sa catégorie. Une silhouette est affichée avant l'achat, jamais l'objet.",
+  "categories": [
+    { "id": "palette",   "name": "Palette d'avatar",   "target": "runner", "price": [1000, 2500], "params": { "hueCount": [2, 3], "saturation": [0.6, 1.0], "lightness": [0.45, 0.65], "glow": [0, 1] } },
+    { "id": "motif",     "name": "Motif d'implant",    "target": "runner", "price": [1500, 4000], "params": { "shapes": ["circuit", "chevrons", "points", "lignes de scan", "hexagones", "code-barres", "onde", "fractures"], "density": [0.2, 0.8] } },
+    { "id": "enseigne",  "name": "Enseigne de planque","target": "planque","price": [3000, 7000], "params": { "glyphs": ["note", "crâne", "éclair", "œil", "clé", "lune", "serpent", "diapason"], "flicker": [0, 0.3], "tubes": [1, 3] } },
+    { "id": "carte",     "name": "Habillage de carte", "target": "carte",  "price": [5000, 10000], "params": { "grid": ["isométrique", "hexagonale", "topographique", "circuit"], "rain": [0, 1], "scanlines": [0, 1] } }
+  ],
+  "rarityOdds": { "street": 55, "corpo": 30, "prototype": 12, "fantome": 3 },
+  "rarityEffect": "Rareté purement visuelle : nombre de teintes, halo, animation CSS (Fantôme : léger glitch animé)."
+}

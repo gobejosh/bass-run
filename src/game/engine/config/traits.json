@@ -1,0 +1,54 @@
+{
+  "_doc": "Effets partagés (traits, talents, affixes, signatures, quartiers, complications, planque). Vocabulaire : stat {stat,value} ; growth {stat|all,value} ; roll {value,when} ; dc {value,when} ; supportCoef {value} ; critRange {value} ; fumbleRange {value} ; injuryDuration {value} ; injuryAvoid {value} ; xpMult {value} ; creditMult {value} ; repMult {value} ; stealth {value}. when = {type} | {stat requise} | {crewMax} | {tierMin}.",
+  "traits": [
+    { "id": "veteran",     "name": "Vétéran",              "desc": "A déjà tout vu. Départ solide, progression lente.",         "effects": [ { "kind": "stat", "stat": "all", "value": 1 }, { "kind": "growth", "stat": "all", "value": -0.1 } ] },
+    { "id": "prodige",     "name": "Prodige",              "desc": "Apprend vite, très vite.",                                   "effects": [ { "kind": "growth", "stat": "all", "value": 0.15 } ] },
+    { "id": "cassecou",    "name": "Casse-cou",            "desc": "Les coups d'éclat, et les points de suture.",                "effects": [ { "kind": "critRange", "value": 1 }, { "kind": "injuryDuration", "value": 1 } ] },
+    { "id": "prudent",     "name": "Prudent",              "desc": "Rentre toujours entier.",                                    "effects": [ { "kind": "injuryAvoid", "value": 0.3 } ] },
+    { "id": "ombre",       "name": "Ombre",                "desc": "Personne ne remarque sa présence.",                          "effects": [ { "kind": "stealth", "value": 1 } ] },
+    { "id": "mercenaire",  "name": "Mercenaire",           "desc": "Négocie chaque eddie.",                                      "effects": [ { "kind": "creditMult", "value": 0.12 } ] },
+    { "id": "ideologue",   "name": "Idéologue",            "desc": "Sa cause fait parler d'elle.",                               "effects": [ { "kind": "repMult", "value": 0.1 } ] },
+    { "id": "regeneratif", "name": "Derme régénératif",    "desc": "Cicatrise deux fois plus vite.",                             "effects": [ { "kind": "injuryDuration", "value": -1 } ] },
+    { "id": "surcable",    "name": "Surcâblé",             "desc": "Plus de chrome que de chair.",                               "effects": [ { "kind": "stat", "stat": "CBT", "value": 2 }, { "kind": "stat", "stat": "SOC", "value": -1 } ] },
+    { "id": "eidetique",   "name": "Mémoire eidétique",    "desc": "Retient chaque ligne de code.",                              "effects": [ { "kind": "stat", "stat": "PIR", "value": 1 }, { "kind": "stat", "stat": "MAT", "value": 1 } ] },
+    { "id": "charisme",    "name": "Voix de velours",      "desc": "On l'écoute avant de la juger.",                             "effects": [ { "kind": "stat", "stat": "SOC", "value": 2 } ] },
+    { "id": "bricoleur",   "name": "Bricoleur",            "desc": "Répare un drone avec un trombone.",                          "effects": [ { "kind": "stat", "stat": "MAT", "value": 2 } ] },
+    { "id": "solitaire",   "name": "Loup solitaire",       "desc": "Meilleur seul ou à deux.",                                   "effects": [ { "kind": "roll", "value": 2, "when": { "crewMax": 2 } } ] },
+    { "id": "collectif",   "name": "Esprit de bande",      "desc": "Rend les autres meilleurs.",                                 "effects": [ { "kind": "supportCoef", "value": 0.15 } ] },
+    { "id": "nerveux",     "name": "Nerveux",              "desc": "Tremble au mauvais moment, mais progresse vite.",            "effects": [ { "kind": "fumbleRange", "value": 1 }, { "kind": "growth", "stat": "all", "value": 0.1 } ] },
+    { "id": "chanceux",    "name": "Né sous néon",         "desc": "La chance des rues lui sourit.",                             "effects": [ { "kind": "critRange", "value": 1 } ] }
+  ],
+  "talents": {
+    "_doc": "Aux niveaux 5, 10, 15 et 20, deux talents tirés au hasard dans la liste du rôle + la liste commune ; tu en gardes un.",
+    "common": [
+      { "id": "endurci",    "name": "Endurci",           "effects": [ { "kind": "injuryDuration", "value": -1 } ] },
+      { "id": "apprenant",  "name": "Autodidacte",       "effects": [ { "kind": "xpMult", "value": 0.15 } ] },
+      { "id": "polyvalent", "name": "Polyvalent",        "effects": [ { "kind": "stat", "stat": "all", "value": 1 } ] },
+      { "id": "pilier",     "name": "Pilier d'équipe",   "effects": [ { "kind": "supportCoef", "value": 0.1 } ] }
+    ],
+    "netrunner": [
+      { "id": "glace",      "name": "Brise-glace",       "effects": [ { "kind": "roll", "value": 2, "when": { "type": "piratage" } } ] },
+      { "id": "overclock",  "name": "Surcadençage",      "effects": [ { "kind": "stat", "stat": "PIR", "value": 3 } ] },
+      { "id": "daemon",     "name": "Daemon dormant",    "effects": [ { "kind": "critRange", "value": 1 } ] },
+      { "id": "spectre",    "name": "Spectre du réseau", "effects": [ { "kind": "stealth", "value": 1 }, { "kind": "stat", "stat": "PIR", "value": 1 } ] }
+    ],
+    "solo": [
+      { "id": "frappe",     "name": "Frappe préventive", "effects": [ { "kind": "roll", "value": 2, "when": { "type": "assaut" } } ] },
+      { "id": "garde",      "name": "Garde du corps",    "effects": [ { "kind": "roll", "value": 2, "when": { "type": "extraction" } } ] },
+      { "id": "chrome",     "name": "Chrome militaire",  "effects": [ { "kind": "stat", "stat": "CBT", "value": 3 } ] },
+      { "id": "increvable", "name": "Increvable",        "effects": [ { "kind": "injuryAvoid", "value": 0.35 } ] }
+    ],
+    "techie": [
+      { "id": "drones",     "name": "Essaim de drones",  "effects": [ { "kind": "stat", "stat": "MAT", "value": 3 } ] },
+      { "id": "demolition", "name": "Démolition",        "effects": [ { "kind": "roll", "value": 2, "when": { "type": "assaut" } } ] },
+      { "id": "atelier",    "name": "Mains d'or",        "effects": [ { "kind": "stat", "stat": "MAT", "value": 1 }, { "kind": "stat", "stat": "CBT", "value": 1 } ] },
+      { "id": "relais",     "name": "Relais tactique",   "effects": [ { "kind": "supportCoef", "value": 0.15 } ] }
+    ],
+    "face": [
+      { "id": "couverture", "name": "Couverture parfaite","effects": [ { "kind": "roll", "value": 2, "when": { "type": "infiltration" } } ] },
+      { "id": "negociateur","name": "Négociatrice",       "effects": [ { "kind": "creditMult", "value": 0.15 } ] },
+      { "id": "reseau",     "name": "Carnet d'adresses",  "effects": [ { "kind": "repMult", "value": 0.12 } ] },
+      { "id": "persona",    "name": "Mille visages",      "effects": [ { "kind": "stat", "stat": "SOC", "value": 3 } ] }
+    ]
+  }
+}

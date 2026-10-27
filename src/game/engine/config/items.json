@@ -1,0 +1,37 @@
+{
+  "_doc": "Bases d'équipement par emplacement. Budget de stats de la base = (budget.base + budget.perTier x palier) x multiplicateur de rareté, réparti selon weights, arrondi à 0,5. g = genre grammatical pour accorder les préfixes.",
+  "budget": { "base": 1.5, "perTier": 1.1, "jitter": [0.9, 1.1] },
+  "slots": [
+    { "id": "arme",    "name": "Arme" },
+    { "id": "implant", "name": "Implant" },
+    { "id": "outil",   "name": "Outil" }
+  ],
+  "bases": [
+    { "id": "lame_thermique",   "slot": "arme",    "name": "Lame thermique",        "g": "f", "weights": { "CBT": 1.0 } },
+    { "id": "pistolet_intel",   "slot": "arme",    "name": "Pistolet intelligent",  "g": "m", "weights": { "CBT": 0.7, "MAT": 0.3 } },
+    { "id": "fil_mono",         "slot": "arme",    "name": "Fil monomoléculaire",   "g": "m", "weights": { "CBT": 0.6, "PIR": 0.4 } },
+    { "id": "taser_arc",        "slot": "arme",    "name": "Taser à arc",           "g": "m", "weights": { "CBT": 0.6, "MAT": 0.4 } },
+    { "id": "matraque",         "slot": "arme",    "name": "Matraque à impulsion",  "g": "f", "weights": { "CBT": 0.5, "SOC": 0.5 } },
+    { "id": "pistolet_muet",    "slot": "arme",    "name": "Pistolet silencieux",   "g": "m", "weights": { "CBT": 0.6, "SOC": 0.4 } },
+    { "id": "lanceur_nanites",  "slot": "arme",    "name": "Lanceur de nanites",    "g": "m", "weights": { "CBT": 0.5, "PIR": 0.5 } },
+    { "id": "fusil_rail",       "slot": "arme",    "name": "Fusil à rail",          "g": "m", "weights": { "CBT": 0.85, "MAT": 0.15 } },
+
+    { "id": "coprocesseur",     "slot": "implant", "name": "Coprocesseur neural",   "g": "m", "weights": { "PIR": 1.0 } },
+    { "id": "reflexes",         "slot": "implant", "name": "Réflexes câblés",       "g": "mp","weights": { "CBT": 1.0 } },
+    { "id": "optiques",         "slot": "implant", "name": "Optiques tactiques",    "g": "fp","weights": { "CBT": 0.5, "MAT": 0.5 } },
+    { "id": "pheromones",       "slot": "implant", "name": "Glande à phéromones",   "g": "f", "weights": { "SOC": 1.0 } },
+    { "id": "puce_langue",      "slot": "implant", "name": "Puce linguistique",     "g": "f", "weights": { "SOC": 0.6, "PIR": 0.4 } },
+    { "id": "bras_outil",       "slot": "implant", "name": "Bras-outil",            "g": "m", "weights": { "MAT": 1.0 } },
+    { "id": "cortex",           "slot": "implant", "name": "Cortex de calcul",      "g": "m", "weights": { "PIR": 0.6, "MAT": 0.4 } },
+    { "id": "derme",            "slot": "implant", "name": "Derme caméléon",        "g": "m", "weights": { "SOC": 0.5, "CBT": 0.5 } },
+
+    { "id": "deck",             "slot": "outil",   "name": "Deck de piratage",      "g": "m", "weights": { "PIR": 0.8, "MAT": 0.2 } },
+    { "id": "crochetage",       "slot": "outil",   "name": "Kit de crochetage",     "g": "m", "weights": { "MAT": 0.7, "SOC": 0.3 } },
+    { "id": "drone",            "slot": "outil",   "name": "Drone éclaireur",       "g": "m", "weights": { "MAT": 0.6, "PIR": 0.4 } },
+    { "id": "badge",            "slot": "outil",   "name": "Badge holographique",   "g": "m", "weights": { "SOC": 0.8, "PIR": 0.2 } },
+    { "id": "brouilleur",       "slot": "outil",   "name": "Brouilleur",            "g": "m", "weights": { "PIR": 0.5, "MAT": 0.5 } },
+    { "id": "trousse",          "slot": "outil",   "name": "Trousse de combat",     "g": "f", "weights": { "CBT": 0.5, "MAT": 0.5 } },
+    { "id": "grappin",          "slot": "outil",   "name": "Grappin",               "g": "m", "weights": { "CBT": 0.4, "MAT": 0.6 } },
+    { "id": "modulateur",       "slot": "outil",   "name": "Modulateur vocal",      "g": "m", "weights": { "SOC": 1.0 } }
+  ]
+}

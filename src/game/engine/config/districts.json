@@ -1,0 +1,473 @@
+{
+  "_doc": "6 paliers de quartiers. Le palier fixe la difficulté et les récompenses ; le nom, la faction, la couleur et le trait de chaque quartier sont tirés au lancement de la partie (graine) et révélés au déblocage.",
+  "tiers": [
+    {
+      "tier": 1,
+      "dcBase": 15,
+      "repToUnlock": 0,
+      "credits": 60,
+      "rep": 12,
+      "xp": 22,
+      "gearRarity": {
+        "recup": 65,
+        "street": 28,
+        "corpo": 6.5,
+        "prototype": 0.5,
+        "fantome": 0
+      }
+    },
+    {
+      "tier": 2,
+      "dcBase": 23,
+      "repToUnlock": 350,
+      "credits": 100,
+      "rep": 18,
+      "xp": 36,
+      "gearRarity": {
+        "recup": 50,
+        "street": 34,
+        "corpo": 13,
+        "prototype": 2.8,
+        "fantome": 0.2
+      }
+    },
+    {
+      "tier": 3,
+      "dcBase": 34,
+      "repToUnlock": 2000,
+      "credits": 160,
+      "rep": 26,
+      "xp": 54,
+      "gearRarity": {
+        "recup": 36,
+        "street": 38,
+        "corpo": 20,
+        "prototype": 5.5,
+        "fantome": 0.5
+      }
+    },
+    {
+      "tier": 4,
+      "dcBase": 44,
+      "repToUnlock": 4000,
+      "credits": 240,
+      "rep": 36,
+      "xp": 76,
+      "gearRarity": {
+        "recup": 26,
+        "street": 38,
+        "corpo": 27,
+        "prototype": 8,
+        "fantome": 1
+      }
+    },
+    {
+      "tier": 5,
+      "dcBase": 56,
+      "repToUnlock": 6500,
+      "credits": 330,
+      "rep": 48,
+      "xp": 100,
+      "gearRarity": {
+        "recup": 18,
+        "street": 36,
+        "corpo": 33,
+        "prototype": 11,
+        "fantome": 2
+      }
+    },
+    {
+      "tier": 6,
+      "dcBase": 65,
+      "repToUnlock": 9500,
+      "credits": 450,
+      "rep": 62,
+      "xp": 128,
+      "gearRarity": {
+        "recup": 12,
+        "street": 33,
+        "corpo": 37,
+        "prototype": 15,
+        "fantome": 3
+      }
+    }
+  ],
+  "names": {
+    "_doc": "Nom = article + nom + qualificatif accordé (g : m, f, mp, fp).",
+    "nouns": [
+      {
+        "w": "Docks",
+        "art": "Les",
+        "g": "mp"
+      },
+      {
+        "w": "Canopée",
+        "art": "La",
+        "g": "f"
+      },
+      {
+        "w": "Fosse",
+        "art": "La",
+        "g": "f"
+      },
+      {
+        "w": "Halles",
+        "art": "Les",
+        "g": "fp"
+      },
+      {
+        "w": "Spire",
+        "art": "La",
+        "g": "f"
+      },
+      {
+        "w": "Marais",
+        "art": "Le",
+        "g": "m"
+      },
+      {
+        "w": "Arcades",
+        "art": "Les",
+        "g": "fp"
+      },
+      {
+        "w": "Cuves",
+        "art": "Les",
+        "g": "fp"
+      },
+      {
+        "w": "Terrasses",
+        "art": "Les",
+        "g": "fp"
+      },
+      {
+        "w": "Faisceau",
+        "art": "Le",
+        "g": "m"
+      },
+      {
+        "w": "Ruche",
+        "art": "La",
+        "g": "f"
+      },
+      {
+        "w": "Faille",
+        "art": "La",
+        "g": "f"
+      },
+      {
+        "w": "Quai",
+        "art": "Le",
+        "g": "m"
+      },
+      {
+        "w": "Dédale",
+        "art": "Le",
+        "g": "m"
+      },
+      {
+        "w": "Puits",
+        "art": "Le",
+        "g": "m"
+      },
+      {
+        "w": "Jardins",
+        "art": "Les",
+        "g": "mp"
+      },
+      {
+        "w": "Échangeur",
+        "art": "L'",
+        "g": "m"
+      },
+      {
+        "w": "Citadelle",
+        "art": "La",
+        "g": "f"
+      }
+    ],
+    "qualifiers": [
+      {
+        "m": "de Néon",
+        "f": "de Néon",
+        "mp": "de Néon",
+        "fp": "de Néon"
+      },
+      {
+        "m": "Rouillé",
+        "f": "Rouillée",
+        "mp": "Rouillés",
+        "fp": "Rouillées"
+      },
+      {
+        "m": "Noyé",
+        "f": "Noyée",
+        "mp": "Noyés",
+        "fp": "Noyées"
+      },
+      {
+        "m": "Suspendu",
+        "f": "Suspendue",
+        "mp": "Suspendus",
+        "fp": "Suspendues"
+      },
+      {
+        "m": "Sans Ciel",
+        "f": "Sans Ciel",
+        "mp": "Sans Ciel",
+        "fp": "Sans Ciel"
+      },
+      {
+        "m": "Écarlate",
+        "f": "Écarlate",
+        "mp": "Écarlates",
+        "fp": "Écarlates"
+      },
+      {
+        "m": "du Silence",
+        "f": "du Silence",
+        "mp": "du Silence",
+        "fp": "du Silence"
+      },
+      {
+        "m": "Brisé",
+        "f": "Brisée",
+        "mp": "Brisés",
+        "fp": "Brisées"
+      },
+      {
+        "m": "de Verre",
+        "f": "de Verre",
+        "mp": "de Verre",
+        "fp": "de Verre"
+      },
+      {
+        "m": "Électrique",
+        "f": "Électrique",
+        "mp": "Électriques",
+        "fp": "Électriques"
+      },
+      {
+        "m": "d'Acier",
+        "f": "d'Acier",
+        "mp": "d'Acier",
+        "fp": "d'Acier"
+      },
+      {
+        "m": "Profond",
+        "f": "Profonde",
+        "mp": "Profonds",
+        "fp": "Profondes"
+      },
+      {
+        "m": "Doré",
+        "f": "Dorée",
+        "mp": "Dorés",
+        "fp": "Dorées"
+      },
+      {
+        "m": "Fantôme",
+        "f": "Fantôme",
+        "mp": "Fantômes",
+        "fp": "Fantômes"
+      }
+    ]
+  },
+  "palette": [
+    "#ff3fb0",
+    "#38e8ff",
+    "#ffd23f",
+    "#7cff4f",
+    "#b06bff",
+    "#ff6b3f",
+    "#3fff9e",
+    "#ff3f5e"
+  ],
+  "traits": [
+    {
+      "id": "reseau_sature",
+      "name": "Réseau saturé",
+      "desc": "Le trafic noie les intrusions.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2,
+          "when": {
+            "type": "piratage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "couvre_feu",
+      "name": "Couvre-feu",
+      "desc": "Les rues se vident à la nuit.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2,
+          "when": {
+            "type": "infiltration"
+          }
+        }
+      ]
+    },
+    {
+      "id": "milice",
+      "name": "Milice de quartier",
+      "desc": "Ici, tout le monde est armé.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2,
+          "when": {
+            "type": "assaut"
+          }
+        }
+      ]
+    },
+    {
+      "id": "checkpoints",
+      "name": "Points de contrôle",
+      "desc": "Sortir quelqu'un d'ici est un art.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2,
+          "when": {
+            "type": "extraction"
+          }
+        }
+      ]
+    },
+    {
+      "id": "marche_noir",
+      "name": "Marché noir",
+      "desc": "Tout se revend, tout se paie.",
+      "effects": [
+        {
+          "kind": "creditMult",
+          "value": 0.15
+        }
+      ]
+    },
+    {
+      "id": "rumeurs",
+      "name": "Moulin à rumeurs",
+      "desc": "Chaque coup fait parler.",
+      "effects": [
+        {
+          "kind": "repMult",
+          "value": 0.15
+        }
+      ]
+    },
+    {
+      "id": "brouillard",
+      "name": "Brouillard chimique",
+      "desc": "On y voit mal, eux aussi.",
+      "effects": [
+        {
+          "kind": "roll",
+          "value": 1,
+          "when": {
+            "type": "infiltration"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pannes",
+      "name": "Pannes tournantes",
+      "desc": "Les systèmes clignotent.",
+      "effects": [
+        {
+          "kind": "roll",
+          "value": 1,
+          "when": {
+            "type": "piratage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ferrailleurs",
+      "name": "Ferrailleurs",
+      "desc": "Le matériel traîne partout.",
+      "effects": [
+        {
+          "kind": "gearChance",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "cliniques",
+      "name": "Cliniques clandestines",
+      "desc": "On recoud vite et sans questions.",
+      "effects": [
+        {
+          "kind": "injuryDuration",
+          "value": -1
+        }
+      ]
+    }
+  ],
+  "factions": {
+    "_doc": "Nom de corporation ou de gang tenant le quartier = syllabe1 + syllabe2 + suffixe.",
+    "syl1": [
+      "Kor",
+      "Vel",
+      "Ostr",
+      "Hel",
+      "Nex",
+      "Ari",
+      "Sol",
+      "Mar",
+      "Tek",
+      "Dyn",
+      "Zen",
+      "Quor",
+      "Lys",
+      "Obel",
+      "Cyr",
+      "Ul"
+    ],
+    "syl2": [
+      "ion",
+      "ex",
+      "ara",
+      "is",
+      "onix",
+      "eda",
+      "umi",
+      "ane",
+      "ax",
+      "ova",
+      "eth",
+      "ys"
+    ],
+    "suffix": [
+      "Industries",
+      "Biotech",
+      "Dynamics",
+      "Holdings",
+      "Systèmes",
+      "Sécurité",
+      "Pharma",
+      "Logistique",
+      "Médias",
+      "Orbital"
+    ],
+    "gangs": [
+      "les Chiens de Verre",
+      "la Meute Sourde",
+      "les Fils du Câble",
+      "la Confrérie Basse",
+      "les Rats de Quai",
+      "les Sœurs Statiques",
+      "le Cartel du Néon",
+      "les Veilleurs"
+    ]
+  }
+}

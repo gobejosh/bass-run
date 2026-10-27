@@ -1,0 +1,310 @@
+{
+  "_doc": "Types de contrats, complications et tables d'ingrédients du texte. Un contrat = quartier (palier) x type x client x cible x complication éventuelle.",
+  "types": [
+    {
+      "id": "piratage",
+      "name": "Piratage",
+      "glyph": "hex",
+      "weights": {
+        "PIR": 0.65,
+        "MAT": 0.35
+      },
+      "idealCrew": 2,
+      "creditMult": 1.0,
+      "repMult": 1.0
+    },
+    {
+      "id": "extraction",
+      "name": "Extraction",
+      "glyph": "arrow",
+      "weights": {
+        "CBT": 0.5,
+        "SOC": 0.5
+      },
+      "idealCrew": 3,
+      "creditMult": 1.1,
+      "repMult": 1.0
+    },
+    {
+      "id": "infiltration",
+      "name": "Infiltration",
+      "glyph": "mask",
+      "weights": {
+        "SOC": 0.65,
+        "PIR": 0.35
+      },
+      "idealCrew": 2,
+      "creditMult": 0.95,
+      "repMult": 1.1
+    },
+    {
+      "id": "assaut",
+      "name": "Assaut",
+      "glyph": "blade",
+      "weights": {
+        "CBT": 0.65,
+        "MAT": 0.35
+      },
+      "idealCrew": 4,
+      "creditMult": 1.2,
+      "repMult": 0.9
+    }
+  ],
+  "complications": [
+    {
+      "id": "glace_noire",
+      "name": "Glace noire",
+      "desc": "Contre-mesures mortelles sur le réseau.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 3,
+          "when": {
+            "stat": "PIR"
+          }
+        }
+      ]
+    },
+    {
+      "id": "renforts",
+      "name": "Renforts en route",
+      "desc": "Une équipe d'intervention arrive vite.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 3,
+          "when": {
+            "stat": "CBT"
+          }
+        }
+      ]
+    },
+    {
+      "id": "serrures",
+      "name": "Serrures magnétiques",
+      "desc": "Tout est verrouillé au niveau matériel.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 3,
+          "when": {
+            "stat": "MAT"
+          }
+        }
+      ]
+    },
+    {
+      "id": "physionomiste",
+      "name": "Physionomiste",
+      "desc": "Quelqu'un reconnaît les visages.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 3,
+          "when": {
+            "stat": "SOC"
+          }
+        }
+      ]
+    },
+    {
+      "id": "double_jeu",
+      "name": "Client double",
+      "desc": "Le commanditaire joue sur deux tableaux.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "delai",
+      "name": "Fenêtre étroite",
+      "desc": "Tout doit être fini en douze minutes.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "temoin",
+      "name": "Témoin gênant",
+      "desc": "Un civil au mauvais endroit.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 1
+        },
+        {
+          "kind": "repMult",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "prime",
+      "name": "Prime de risque",
+      "desc": "Le client paie double s'il le faut.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2
+        },
+        {
+          "kind": "creditMult",
+          "value": 0.4
+        }
+      ]
+    },
+    {
+      "id": "pluie_acide",
+      "name": "Pluie acide",
+      "desc": "Visibilité nulle, capteurs aveugles.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "blackout",
+      "name": "Coupure de courant",
+      "desc": "Le quartier plonge dans le noir.",
+      "effects": [
+        {
+          "kind": "roll",
+          "value": 1,
+          "when": {
+            "type": "infiltration"
+          }
+        },
+        {
+          "kind": "dc",
+          "value": 2,
+          "when": {
+            "type": "piratage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cargaison",
+      "name": "Cargaison annexe",
+      "desc": "Il y a autre chose à récupérer sur place.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 2
+        },
+        {
+          "kind": "gearChance",
+          "value": 0.15
+        }
+      ]
+    },
+    {
+      "id": "rival",
+      "name": "Équipe rivale",
+      "desc": "D'autres runners visent la même cible.",
+      "effects": [
+        {
+          "kind": "dc",
+          "value": 3
+        },
+        {
+          "kind": "repMult",
+          "value": 0.3
+        }
+      ]
+    }
+  ],
+  "clients": {
+    "_doc": "Client = rôle + nom de runner tiré dans names.json, ou faction du quartier.",
+    "roles": [
+      "un fixer",
+      "une fixeuse",
+      "une archiviste corpo",
+      "un syndicaliste des docks",
+      "une médecin de rue",
+      "un prêtre du câble",
+      "une journaliste pirate",
+      "un cadre en disgrâce",
+      "une IA marginale",
+      "un collectionneur",
+      "une ancienne runneuse",
+      "un chef de gang"
+    ]
+  },
+  "targets": {
+    "piratage": [
+      "le serveur de paie",
+      "le noyau d'IA du trafic",
+      "les archives médicales",
+      "le registre d'identités",
+      "le réseau de caméras",
+      "la banque de brevets",
+      "le pare-feu d'une clinique",
+      "la messagerie d'un conseiller"
+    ],
+    "extraction": [
+      "un chimiste en fuite",
+      "un témoin protégé",
+      "une ingénieure retenue",
+      "un prototype de drone",
+      "une enfant d'expatrié",
+      "un lot d'implants volés",
+      "un hacker repenti",
+      "une valise diplomatique"
+    ],
+    "infiltration": [
+      "un gala de charité",
+      "un conseil d'administration",
+      "une clinique privée",
+      "un club en sous-sol",
+      "une enchère clandestine",
+      "un salon d'armement",
+      "une réception d'ambassade",
+      "un congrès de biotech"
+    ],
+    "assaut": [
+      "un entrepôt de drones",
+      "un convoi blindé",
+      "un laboratoire illégal",
+      "un poste de milice",
+      "une usine de chrome",
+      "un relais de communication",
+      "un hangar portuaire",
+      "une planque de trafiquants"
+    ]
+  },
+  "verbs": {
+    "piratage": [
+      "Pirater",
+      "Effacer",
+      "Copier",
+      "Corrompre"
+    ],
+    "extraction": [
+      "Exfiltrer",
+      "Récupérer",
+      "Escorter",
+      "Libérer"
+    ],
+    "infiltration": [
+      "Infiltrer",
+      "Espionner",
+      "Doubler",
+      "Saboter"
+    ],
+    "assaut": [
+      "Neutraliser",
+      "Raser",
+      "Prendre",
+      "Détruire"
+    ]
+  }
+}

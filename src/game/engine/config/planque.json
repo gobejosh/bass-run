@@ -1,0 +1,104 @@
+{
+  "_doc": "Modules de la planque : puits à crédits à long terme. 3 niveaux chacun, effets cumulatifs par niveau (la valeur indiquée remplace la précédente).",
+  "modules": [
+    {
+      "id": "infirmerie",
+      "name": "Infirmerie",
+      "desc": "Réduit la durée des blessures.",
+      "costs": [
+        600,
+        2000,
+        6000
+      ],
+      "levels": [
+        {
+          "kind": "injuryDuration",
+          "value": -1
+        },
+        {
+          "kind": "injuryDuration",
+          "value": -2
+        },
+        {
+          "kind": "injuryDuration",
+          "value": -3
+        }
+      ]
+    },
+    {
+      "id": "dojo",
+      "name": "Salle d'entraînement",
+      "desc": "Les runners restés à la planque gagnent plus d'XP.",
+      "costs": [
+        500,
+        1800,
+        5000
+      ],
+      "levels": [
+        {
+          "kind": "benchXp",
+          "value": 0.45
+        },
+        {
+          "kind": "benchXp",
+          "value": 0.65
+        },
+        {
+          "kind": "benchXp",
+          "value": 0.85
+        }
+      ]
+    },
+    {
+      "id": "indics",
+      "name": "Réseau d'indics",
+      "desc": "Réduit le malus des complications.",
+      "costs": [
+        700,
+        2400,
+        7000
+      ],
+      "levels": [
+        {
+          "kind": "complicationReduce",
+          "value": 1
+        },
+        {
+          "kind": "complicationReduce",
+          "value": 2
+        },
+        {
+          "kind": "complicationReduce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "atelier",
+      "name": "Atelier",
+      "desc": "Plus d'équipement trouvé, et de meilleure qualité.",
+      "costs": [
+        800,
+        2600,
+        8000
+      ],
+      "levels": [
+        {
+          "kind": "gearChance",
+          "value": 0.03,
+          "rarityUp": 0.05
+        },
+        {
+          "kind": "gearChance",
+          "value": 0.06,
+          "rarityUp": 0.1
+        },
+        {
+          "kind": "gearChance",
+          "value": 0.1,
+          "rarityUp": 0.15
+        }
+      ]
+    }
+  ]
+}

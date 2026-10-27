@@ -1,0 +1,615 @@
+/* ==========================================================================
+   Basse Run — jetons de thème
+   5 directions commutables : <html data-theme="neon | phosphore | signal | tokyo | jour">
+   Sans attribut, c'est Pupitre néon. Ratios WCAG calculés et notés à côté de chaque couleur.
+   Polices sous licence OFL, servies depuis ./fonts (hors ligne). Licences dans ./fonts/licences.
+   ========================================================================== */
+
+
+/* ---------- Polices ---------- */
+@font-face { font-family: 'Chakra Petch'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/chakra-petch-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Chakra Petch'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/chakra-petch-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Chakra Petch'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/chakra-petch-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/instrument-sans-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/instrument-sans-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/instrument-sans-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/instrument-sans-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/jetbrains-mono-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/jetbrains-mono-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'VT323'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/vt323-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/ibm-plex-mono-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/ibm-plex-mono-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/ibm-plex-mono-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/ibm-plex-mono-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/barlow-condensed-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/barlow-condensed-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/barlow-condensed-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/barlow-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/barlow-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/barlow-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/barlow-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Share Tech Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/share-tech-mono-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Anton'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/anton-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/space-grotesk-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/space-grotesk-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/space-grotesk-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/space-mono-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/space-mono-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Saira Semi Condensed'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/saira-semi-condensed-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Saira Semi Condensed'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/saira-semi-condensed-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Saira Semi Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/saira-semi-condensed-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Atkinson Hyperlegible Next'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/atkinson-hyperlegible-next-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Atkinson Hyperlegible Next'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/atkinson-hyperlegible-next-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Atkinson Hyperlegible Next'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/atkinson-hyperlegible-next-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Atkinson Hyperlegible Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('./fonts/atkinson-hyperlegible-mono-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Atkinson Hyperlegible Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/atkinson-hyperlegible-mono-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Basse Run Musique'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('./fonts/noto-sans-symbols-400.woff2') format('woff2'); unicode-range: U+266D-266F; size-adjust: 150%; } /* ♭ ♮ ♯ : Noto Sans Symbols, agrandi pour égaler la hauteur des capitales */
+
+/* ---------- Jetons communs ---------- */
+:root {
+  /* Espacements (grille de 4 px) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 48px;
+  --pad-screen: 28px 36px;        /* paysage 1280×800 */
+  --pad-screen-portrait: 24px;    /* portrait 800×1280 */
+  --pad-scene: 18px 28px;         /* bloc en cours */
+  --gap-panels: 20px;
+
+  /* Échelle de texte commune (console lue à 50 cm) */
+  --fs-meta: 14px;                /* minimum absolu : 13 px pour les numéros de mesure */
+  --fs-measure-num: 13px;
+  --fs-small: 15px;
+  --fs-label: 14px;
+  --fs-lead: 20px;
+  --fs-h2: 24px;
+  --lh-body: 1.4;
+  --lh-tight: 1;
+
+  /* Cibles tactiles */
+  --target-min: 44px;
+  --target-main: 56px;
+  --target-scene: 64px;           /* boutons pendant un bloc et en portrait */
+  --metro-cell-h: 64px;
+  --metro-cell-h-portrait: 80px;
+  --pill: 999px;
+
+  /* Focus clavier et pédale */
+  --focus-width: 3px;
+  --focus-offset: 2px;
+
+  /* Mouvement : hors bloc seulement. Pendant un bloc, rien ne bouge sauf les cases du métronome, sans transition. */
+  --dur-fast: 120ms;
+  --dur: 200ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ---------- Thème ---------- */
+/* 1 · Pupitre néon — La nuit du pupitre : un indigo calme où seul le cyan holographique dit « maintenant » et l'orangé sodium signale ce que le prof attend. */
+:root,
+:root[data-theme="neon"] {
+  color-scheme: dark;
+
+  /* Fonds et traits */
+  --c-bg: #120f24;            /* fond des écrans */
+  --c-surface: #1b1735;       /* panneaux, cartes */
+  --c-raised: #241f44;        /* éléments posés, cases */
+  --c-scene: #0d0a1c;         /* fond pendant un bloc */
+  --c-line: #3a3366;          /* séparateurs (décor, pas de seuil) */
+  --c-line-strong: #7d74bb;   /* bords de champs et boutons : 4,5:1 fond · 4,2:1 panneau · 4,7:1 scène */
+
+  /* Encres */
+  --c-ink: #eeeafb;           /* 15,9:1 fond · 14,6:1 panneau */
+  --c-ink-2: #c4bfe3;         /* 10,6:1 · 9,8:1 */
+  --c-ink-3: #a29bcb;         /* 7,2:1 · 6,6:1 · 6,0:1 posé */
+
+  /* Sens : action et « maintenant » */
+  --c-action: #4fe3ee;        /* 12,1:1 fond · 11,1:1 panneau */
+  --c-on-action: #06262a;     /* texte sur action : 10,3:1 */
+  --c-action-dim: #1d6f78;    /* cadre du bloc suivant (décor) */
+  --c-now-bg: #16303a;        /* fond de la mesure jouée */
+  --c-now-ink: #eeeafb;       /* accord de la mesure jouée : 11,7:1 */
+  --c-focus: #4fe3ee;         /* anneau de focus clavier : 12,1:1 */
+
+  /* Sens : devoirs et annonces */
+  --c-devoir: #ffb04a;        /* 10,3:1 fond · 9,5:1 panneau · 9,4:1 sur son fond */
+  --c-devoir-dim: #6a5226;    /* cadre du panneau devoirs (décor) */
+  --c-devoir-bg: #1f1a24;     /* fond du panneau devoirs */
+
+  /* Abandonner, supprimer. Jamais pour un retard. */
+  --c-abandon: #ff8f8f;       /* 8,6:1 fond · 8,9:1 scène */
+  --c-abandon-dim: #a8546a;   /* bord du bouton : 3,8:1 scène */
+
+  /* Raretés : luminosité croissante de Récup à Fantôme. Étiquette en --c-rar-ink sur la plaque. */
+  --c-rar-recup: #8c8272;     /* étiquette 5,0:1 · plaque 4,5:1 */
+  --c-rar-street: #33b172;    /* étiquette 6,9:1 · plaque 6,3:1 */
+  --c-rar-corpo: #97b5fc;     /* étiquette 9,2:1 · plaque 8,5:1 */
+  --c-rar-proto: #e5cafe;     /* étiquette 12,7:1 · plaque 11,6:1 */
+  --c-rar-fantome: #fff2fa;   /* étiquette 17,3:1 · plaque 15,8:1 */
+  --c-rar-ink: #120f24;
+
+  /* Polices */
+  --f-display: 'Chakra Petch', 'Basse Run Musique', sans-serif;
+  --f-label: 'Chakra Petch', 'Basse Run Musique', sans-serif;       /* étiquettes de section */
+  --f-text: 'Instrument Sans', 'Basse Run Musique', system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --f-chord: 'Chakra Petch', 'Basse Run Musique', sans-serif;
+  --f-chrono: 'JetBrains Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --fw-display: 700;
+  --fw-label: 600;
+  --fw-chord: 600;
+  --fw-chrono: 700;
+
+  /* Tailles propres au thème (scène lue à 1,5 m) */
+  --fs-body: 17px;
+  --fs-h1: 40px;
+  --fs-feature: 38px;
+  --fs-chord: 34px;            /* une mesure, un accord */
+  --fs-chord-2: 30px;          /* deux accords dans la mesure */
+  --fs-chord-portrait: 32px;
+  --fs-chord-portrait-2: 28px; /* accords empilés */
+  --fs-chrono: 104px;
+  --fs-chrono-portrait: 128px;
+  --fs-pause: 96px;
+  --fs-bpm: 60px;
+
+  /* Rayons, traits et allure */
+  --r-sm: 4px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --bw: 1px;
+  --bw-grid: 2px;
+  --label-case: uppercase;
+  --label-tracking: 0.1em;
+  --label-before: "";
+  --label-after: "";
+  --title-case: none;
+  --title-tracking: 0;
+  --panel-bg: var(--c-surface);
+  --panel-border: 1px solid var(--c-line);
+  --panel-rule: var(--panel-border);
+  --panel-now-border: 1px solid var(--c-action-dim);
+  --panel-now-rule: var(--panel-now-border);
+  --panel-devoir-bg: var(--c-devoir-bg);
+  --panel-devoir-border: 1px solid var(--c-devoir-dim);
+  --panel-devoir-rule: var(--panel-devoir-border);
+  --panel-pad: 18px 22px;
+  --btn-case: none;
+  --btn-tracking: 0;
+  --btn-primary-clip: none;
+  --row-next-bg: var(--c-now-bg);
+  --row-next-ink: var(--c-ink);
+  --row-next-border: 1px solid var(--c-action);
+  --now-cell-bg: var(--c-now-bg);
+  --now-cell-ink: var(--c-now-ink);
+  --now-cell-ring: inset 0 0 0 3px var(--c-action);
+  --meter-h: 8px;
+  --modcard-border: 2px solid var(--c-rar-proto);
+  --meta-theme-color: #120f24;
+}
+
+/* ---------- Thème ---------- */
+/* 2 · Terminal phosphore — Le terminal du runner : tout est texte sur une grille à chasse fixe, une seule lumière verte, l’ambre réservé aux ordres du prof. */
+:root[data-theme="phosphore"] {
+  color-scheme: dark;
+
+  /* Fonds et traits */
+  --c-bg: #040a06;            /* fond des écrans */
+  --c-surface: #071209;       /* panneaux, cartes */
+  --c-raised: #0c1d10;        /* éléments posés, cases */
+  --c-scene: #040a06;         /* fond pendant un bloc */
+  --c-line: #1d3d25;          /* séparateurs (décor, pas de seuil) */
+  --c-line-strong: #3f8f55;   /* bords de champs et boutons : 5,0:1 fond · 4,8:1 panneau · 5,0:1 scène */
+
+  /* Encres */
+  --c-ink: #9dffb0;           /* 16,5:1 fond · 15,8:1 panneau */
+  --c-ink-2: #6fd987;         /* 11,4:1 · 10,9:1 */
+  --c-ink-3: #52b26a;         /* 7,5:1 · 7,2:1 · 6,6:1 posé */
+
+  /* Sens : action et « maintenant » */
+  --c-action: #b9ffc8;        /* 17,3:1 fond · 16,6:1 panneau */
+  --c-on-action: #040a06;     /* texte sur action : 17,3:1 */
+  --c-action-dim: #3f8f55;    /* cadre du bloc suivant (décor) */
+  --c-now-bg: #b9ffc8;        /* fond de la mesure jouée */
+  --c-now-ink: #040a06;       /* accord de la mesure jouée : 17,3:1 */
+  --c-focus: #b9ffc8;         /* anneau de focus clavier : 17,3:1 */
+
+  /* Sens : devoirs et annonces */
+  --c-devoir: #ffb547;        /* 11,4:1 fond · 10,9:1 panneau · 10,9:1 sur son fond */
+  --c-devoir-dim: #8a6420;    /* cadre du panneau devoirs (décor) */
+  --c-devoir-bg: #071209;     /* fond du panneau devoirs */
+
+  /* Abandonner, supprimer. Jamais pour un retard. */
+  --c-abandon: #6fd987;       /* 11,4:1 fond · 11,4:1 scène */
+  --c-abandon-dim: #3f8f55;   /* bord du bouton : 5,0:1 scène */
+
+  /* Raretés : luminosité croissante de Récup à Fantôme. Étiquette en --c-rar-ink sur la plaque. */
+  --c-rar-recup: #399550;     /* étiquette 5,3:1 · plaque 5,1:1 */
+  --c-rar-street: #3fbb5c;    /* étiquette 8,1:1 · plaque 7,7:1 */
+  --c-rar-corpo: #5ee07c;     /* étiquette 11,8:1 · plaque 11,3:1 */
+  --c-rar-proto: #a6fbb6;     /* étiquette 16,3:1 · plaque 15,5:1 */
+  --c-rar-fantome: #effff3;   /* étiquette 19,3:1 · plaque 18,4:1 */
+  --c-rar-ink: #040a06;
+
+  /* Polices */
+  --f-display: 'VT323', 'Basse Run Musique', ui-monospace, monospace;
+  --f-label: 'IBM Plex Mono', 'Basse Run Musique', ui-monospace, monospace;       /* étiquettes de section */
+  --f-text: 'IBM Plex Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --f-mono: 'IBM Plex Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --f-chord: 'VT323', 'Basse Run Musique', ui-monospace, monospace;
+  --f-chrono: 'VT323', 'Basse Run Musique', ui-monospace, monospace;
+  --fw-display: 400;
+  --fw-label: 600;
+  --fw-chord: 400;
+  --fw-chrono: 400;
+
+  /* Tailles propres au thème (scène lue à 1,5 m) */
+  --fs-body: 16px;
+  --fs-h1: 64px;
+  --fs-feature: 64px;
+  --fs-chord: 44px;            /* une mesure, un accord */
+  --fs-chord-2: 38px;          /* deux accords dans la mesure */
+  --fs-chord-portrait: 42px;
+  --fs-chord-portrait-2: 36px; /* accords empilés */
+  --fs-chrono: 150px;
+  --fs-chrono-portrait: 170px;
+  --fs-pause: 132px;
+  --fs-bpm: 84px;
+
+  /* Rayons, traits et allure */
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --bw: 1px;
+  --bw-grid: 2px;
+  --label-case: uppercase;
+  --label-tracking: 0.04em;
+  --label-before: "[ ";
+  --label-after: " ]";
+  --title-case: uppercase;
+  --title-tracking: 0.02em;
+  --panel-bg: var(--c-surface);
+  --panel-border: 1px solid var(--c-line);
+  --panel-rule: var(--panel-border);
+  --panel-now-border: 3px double var(--c-action);
+  --panel-now-rule: var(--panel-now-border);
+  --panel-devoir-bg: var(--c-devoir-bg);
+  --panel-devoir-border: 1px dashed var(--c-devoir);
+  --panel-devoir-rule: var(--panel-devoir-border);
+  --panel-pad: 16px 20px;
+  --btn-case: uppercase;
+  --btn-tracking: 0.04em;
+  --btn-primary-clip: none;
+  --row-next-bg: var(--c-action);
+  --row-next-ink: var(--c-on-action);
+  --row-next-border: 1px solid var(--c-action);
+  --now-cell-bg: var(--c-action);
+  --now-cell-ink: var(--c-on-action);
+  --now-cell-ring: none;
+  --meter-h: 12px;
+  --modcard-border: 4px double var(--c-rar-proto);
+  --meta-theme-color: #040a06;
+}
+
+/* ---------- Thème ---------- */
+/* 3 · Signalétique industrielle — Le poste de contrôle d’un chantier de nuit : béton gris, jaune de signalisation pour agir, bleu « obligatoire » pour les devoirs, des codes partout. */
+:root[data-theme="signal"] {
+  color-scheme: dark;
+
+  /* Fonds et traits */
+  --c-bg: #2a2c2e;            /* fond des écrans */
+  --c-surface: #33363a;       /* panneaux, cartes */
+  --c-raised: #3d4146;        /* éléments posés, cases */
+  --c-scene: #232527;         /* fond pendant un bloc */
+  --c-line: #4c5157;          /* séparateurs (décor, pas de seuil) */
+  --c-line-strong: #8f969e;   /* bords de champs et boutons : 4,7:1 fond · 4,1:1 panneau · 5,1:1 scène */
+
+  /* Encres */
+  --c-ink: #f3f3ef;           /* 12,6:1 fond · 10,9:1 panneau */
+  --c-ink-2: #d2d4cf;         /* 9,4:1 · 8,1:1 */
+  --c-ink-3: #b4b8b4;         /* 7,0:1 · 6,0:1 · 5,1:1 posé */
+
+  /* Sens : action et « maintenant » */
+  --c-action: #ffd23a;        /* 9,7:1 fond · 8,4:1 panneau */
+  --c-on-action: #16171a;     /* texte sur action : 12,4:1 */
+  --c-action-dim: #8a7424;    /* cadre du bloc suivant (décor) */
+  --c-now-bg: #3d3a24;        /* fond de la mesure jouée */
+  --c-now-ink: #f3f3ef;       /* accord de la mesure jouée : 10,3:1 */
+  --c-focus: #ffd23a;         /* anneau de focus clavier : 9,7:1 */
+
+  /* Sens : devoirs et annonces */
+  --c-devoir: #7dbdff;        /* 7,1:1 fond · 6,1:1 panneau · 6,1:1 sur son fond */
+  --c-devoir-dim: #3b6f9e;    /* cadre du panneau devoirs (décor) */
+  --c-devoir-bg: #33363a;     /* fond du panneau devoirs */
+
+  /* Abandonner, supprimer. Jamais pour un retard. */
+  --c-abandon: #ffb3a6;       /* 8,2:1 fond · 9,0:1 scène */
+  --c-abandon-dim: #8f969e;   /* bord du bouton : 5,1:1 scène */
+
+  /* Raretés : luminosité croissante de Récup à Fantôme. Étiquette en --c-rar-ink sur la plaque. */
+  --c-rar-recup: #898479;     /* étiquette 4,8:1 · plaque 3,3:1 */
+  --c-rar-street: #42af78;    /* étiquette 6,5:1 · plaque 4,4:1 */
+  --c-rar-corpo: #5fc5d1;     /* étiquette 8,9:1 · plaque 6,0:1 */
+  --c-rar-proto: #e3cafc;     /* étiquette 12,1:1 · plaque 8,2:1 */
+  --c-rar-fantome: #f2f7f9;   /* étiquette 16,6:1 · plaque 11,2:1 */
+  --c-rar-ink: #16171a;
+
+  /* Polices */
+  --f-display: 'Barlow Condensed', 'Basse Run Musique', sans-serif;
+  --f-label: 'Barlow Condensed', 'Basse Run Musique', sans-serif;       /* étiquettes de section */
+  --f-text: 'Barlow', 'Basse Run Musique', system-ui, sans-serif;
+  --f-mono: 'Share Tech Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --f-chord: 'Barlow Condensed', 'Basse Run Musique', sans-serif;
+  --f-chrono: 'Share Tech Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --fw-display: 700;
+  --fw-label: 600;
+  --fw-chord: 600;
+  --fw-chrono: 400;
+
+  /* Tailles propres au thème (scène lue à 1,5 m) */
+  --fs-body: 17px;
+  --fs-h1: 54px;
+  --fs-feature: 58px;
+  --fs-chord: 38px;            /* une mesure, un accord */
+  --fs-chord-2: 33px;          /* deux accords dans la mesure */
+  --fs-chord-portrait: 36px;
+  --fs-chord-portrait-2: 31px; /* accords empilés */
+  --fs-chrono: 110px;
+  --fs-chrono-portrait: 136px;
+  --fs-pause: 104px;
+  --fs-bpm: 64px;
+
+  /* Rayons, traits et allure */
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --bw: 2px;
+  --bw-grid: 2px;
+  --label-case: uppercase;
+  --label-tracking: 0.12em;
+  --label-before: "";
+  --label-after: "";
+  --title-case: uppercase;
+  --title-tracking: 0.01em;
+  --panel-bg: var(--c-surface);
+  --panel-border: 2px solid var(--c-line);
+  --panel-rule: var(--panel-border);
+  --panel-now-border: 2px solid var(--c-action);
+  --panel-now-rule: var(--panel-now-border);
+  --panel-devoir-bg: var(--c-devoir-bg);
+  --panel-devoir-border: 2px solid var(--c-devoir);
+  --panel-devoir-rule: var(--panel-devoir-border);
+  --panel-pad: 18px 22px;
+  --btn-case: uppercase;
+  --btn-tracking: 0.08em;
+  --btn-primary-clip: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  --row-next-bg: var(--c-now-bg);
+  --row-next-ink: var(--c-ink);
+  --row-next-border: 2px solid var(--c-action);
+  --now-cell-bg: var(--c-now-bg);
+  --now-cell-ink: var(--c-now-ink);
+  --now-cell-ring: inset 0 0 0 4px var(--c-action);
+  --meter-h: 12px;
+  --modcard-border: 3px solid var(--c-rar-proto);
+  --meta-theme-color: #2a2c2e;
+}
+
+/* ---------- Thème ---------- */
+/* 4 · Éditorial Néo-Tokyo — Une couverture de magazine de nuit : noir d’encre, une seule couleur électrique, des titres d’affiche et des filets à la place des cadres. */
+:root[data-theme="tokyo"] {
+  color-scheme: dark;
+
+  /* Fonds et traits */
+  --c-bg: #0a0a0a;            /* fond des écrans */
+  --c-surface: #121212;       /* panneaux, cartes */
+  --c-raised: #1c1c1c;        /* éléments posés, cases */
+  --c-scene: #0a0a0a;         /* fond pendant un bloc */
+  --c-line: #2e2e2e;          /* séparateurs (décor, pas de seuil) */
+  --c-line-strong: #7a7a76;   /* bords de champs et boutons : 4,6:1 fond · 4,3:1 panneau · 4,6:1 scène */
+
+  /* Encres */
+  --c-ink: #f5f4ef;           /* 18,0:1 fond · 17,0:1 panneau */
+  --c-ink-2: #c2c1bb;         /* 11,0:1 · 10,4:1 */
+  --c-ink-3: #9d9c96;         /* 7,2:1 · 6,8:1 · 6,2:1 posé */
+
+  /* Sens : action et « maintenant » */
+  --c-action: #ff3d81;        /* 5,9:1 fond · 5,6:1 panneau */
+  --c-on-action: #0a0a0a;     /* texte sur action : 5,9:1 */
+  --c-action-dim: #7a1f40;    /* cadre du bloc suivant (décor) */
+  --c-now-bg: #2a0f1a;        /* fond de la mesure jouée */
+  --c-now-ink: #f5f4ef;       /* accord de la mesure jouée : 16,1:1 */
+  --c-focus: #ff3d81;         /* anneau de focus clavier : 5,9:1 */
+
+  /* Sens : devoirs et annonces */
+  --c-devoir: #ffe066;        /* 15,2:1 fond · 14,4:1 panneau · 15,2:1 sur son fond */
+  --c-devoir-dim: #7a6a2a;    /* cadre du panneau devoirs (décor) */
+  --c-devoir-bg: #0a0a0a;     /* fond du panneau devoirs */
+
+  /* Abandonner, supprimer. Jamais pour un retard. */
+  --c-abandon: #c2c1bb;       /* 11,0:1 fond · 11,0:1 scène */
+  --c-abandon-dim: #7a7a76;   /* bord du bouton : 4,6:1 scène */
+
+  /* Raretés : luminosité croissante de Récup à Fantôme. Étiquette en --c-rar-ink sur la plaque. */
+  --c-rar-recup: #88847f;     /* étiquette 5,3:1 · plaque 5,0:1 */
+  --c-rar-street: #2cb084;    /* étiquette 7,2:1 · plaque 6,8:1 */
+  --c-rar-corpo: #78bcff;     /* étiquette 9,8:1 · plaque 9,3:1 */
+  --c-rar-proto: #e8c9ff;     /* étiquette 13,4:1 · plaque 12,7:1 */
+  --c-rar-fantome: #f4f5ff;   /* étiquette 18,2:1 · plaque 17,3:1 */
+  --c-rar-ink: #0a0a0a;
+
+  /* Polices */
+  --f-display: 'Anton', 'Basse Run Musique', 'Arial Narrow', sans-serif;
+  --f-label: 'Space Grotesk', 'Basse Run Musique', system-ui, sans-serif;       /* étiquettes de section */
+  --f-text: 'Space Grotesk', 'Basse Run Musique', system-ui, sans-serif;
+  --f-mono: 'Space Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --f-chord: 'Anton', 'Basse Run Musique', 'Arial Narrow', sans-serif;
+  --f-chrono: 'Space Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --fw-display: 400;
+  --fw-label: 700;
+  --fw-chord: 400;
+  --fw-chrono: 700;
+
+  /* Tailles propres au thème (scène lue à 1,5 m) */
+  --fs-body: 17px;
+  --fs-h1: 92px;
+  --fs-feature: 96px;
+  --fs-chord: 38px;            /* une mesure, un accord */
+  --fs-chord-2: 32px;          /* deux accords dans la mesure */
+  --fs-chord-portrait: 38px;
+  --fs-chord-portrait-2: 32px; /* accords empilés */
+  --fs-chrono: 100px;
+  --fs-chrono-portrait: 124px;
+  --fs-pause: 110px;
+  --fs-bpm: 64px;
+
+  /* Rayons, traits et allure */
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --bw: 1px;
+  --bw-grid: 1px;
+  --label-case: uppercase;
+  --label-tracking: 0.2em;
+  --label-before: "";
+  --label-after: "";
+  --title-case: uppercase;
+  --title-tracking: 0.005em;
+  --panel-bg: transparent;
+  --panel-border: 0 solid transparent;
+  --panel-rule: 1px solid var(--c-ink);
+  --panel-now-border: 0 solid transparent;
+  --panel-now-rule: 6px solid var(--c-action);
+  --panel-devoir-bg: transparent;
+  --panel-devoir-border: 0 solid transparent;
+  --panel-devoir-rule: 6px solid var(--c-devoir);
+  --panel-pad: 12px 0 0;
+  --btn-case: uppercase;
+  --btn-tracking: 0.14em;
+  --btn-primary-clip: none;
+  --row-next-bg: transparent;
+  --row-next-ink: var(--c-ink);
+  --row-next-border: 1px solid var(--c-action);
+  --now-cell-bg: var(--c-action);
+  --now-cell-ink: var(--c-on-action);
+  --now-cell-ring: none;
+  --meter-h: 4px;
+  --modcard-border: 0 solid transparent;
+  --meta-theme-color: #0a0a0a;
+}
+
+/* ---------- Thème ---------- */
+/* 5 · Pupitre de jour — Une partition sur un pupitre éclairé : papier clair, encre noire, un cyan profond pour agir et un coin coupé pour rappeler le jeu. */
+:root[data-theme="jour"] {
+  color-scheme: light;
+
+  /* Fonds et traits */
+  --c-bg: #f3f2ee;            /* fond des écrans */
+  --c-surface: #ffffff;       /* panneaux, cartes */
+  --c-raised: #e8e7e1;        /* éléments posés, cases */
+  --c-scene: #f3f2ee;         /* fond pendant un bloc */
+  --c-line: #d3d1c9;          /* séparateurs (décor, pas de seuil) */
+  --c-line-strong: #7f7d75;   /* bords de champs et boutons : 3,7:1 fond · 4,1:1 panneau · 3,7:1 scène */
+
+  /* Encres */
+  --c-ink: #15161b;           /* 16,1:1 fond · 18,1:1 panneau */
+  --c-ink-2: #3b3d46;         /* 9,7:1 · 10,8:1 */
+  --c-ink-3: #5b5d66;         /* 5,9:1 · 6,6:1 · 5,3:1 posé */
+
+  /* Sens : action et « maintenant » */
+  --c-action: #007380;        /* 5,0:1 fond · 5,6:1 panneau */
+  --c-on-action: #ffffff;     /* texte sur action : 5,6:1 */
+  --c-action-dim: #7fc0c7;    /* cadre du bloc suivant (décor) */
+  --c-now-bg: #dff3f4;        /* fond de la mesure jouée */
+  --c-now-ink: #15161b;       /* accord de la mesure jouée : 15,7:1 */
+  --c-focus: #007380;         /* anneau de focus clavier : 5,0:1 */
+
+  /* Sens : devoirs et annonces */
+  --c-devoir: #9a5200;        /* 5,2:1 fond · 5,9:1 panneau · 5,4:1 sur son fond */
+  --c-devoir-dim: #d9b88a;    /* cadre du panneau devoirs (décor) */
+  --c-devoir-bg: #fbf4e9;     /* fond du panneau devoirs */
+
+  /* Abandonner, supprimer. Jamais pour un retard. */
+  --c-abandon: #9b2c2c;       /* 6,7:1 fond · 6,7:1 scène */
+  --c-abandon-dim: #a86a6a;   /* bord du bouton : 3,8:1 scène */
+
+  /* Raretés : luminosité décroissante de Récup à Fantôme. Étiquette en --c-rar-ink sur la plaque. */
+  --c-rar-recup: #787063;     /* étiquette 4,9:1 · plaque 4,9:1 */
+  --c-rar-street: #1b6b43;    /* étiquette 6,5:1 · plaque 6,5:1 */
+  --c-rar-corpo: #164d97;     /* étiquette 8,3:1 · plaque 8,3:1 */
+  --c-rar-proto: #591e8d;     /* étiquette 10,5:1 · plaque 10,5:1 */
+  --c-rar-fantome: #530f53;   /* étiquette 13,5:1 · plaque 13,5:1 */
+  --c-rar-ink: #ffffff;
+
+  /* Polices */
+  --f-display: 'Saira Semi Condensed', 'Basse Run Musique', sans-serif;
+  --f-label: 'Saira Semi Condensed', 'Basse Run Musique', sans-serif;       /* étiquettes de section */
+  --f-text: 'Atkinson Hyperlegible Next', 'Basse Run Musique', system-ui, sans-serif;
+  --f-mono: 'Atkinson Hyperlegible Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --f-chord: 'Atkinson Hyperlegible Next', 'Basse Run Musique', system-ui, sans-serif;
+  --f-chrono: 'Atkinson Hyperlegible Mono', 'Basse Run Musique', ui-monospace, monospace;
+  --fw-display: 700;
+  --fw-label: 600;
+  --fw-chord: 700;
+  --fw-chrono: 700;
+
+  /* Tailles propres au thème (scène lue à 1,5 m) */
+  --fs-body: 17px;
+  --fs-h1: 42px;
+  --fs-feature: 40px;
+  --fs-chord: 34px;            /* une mesure, un accord */
+  --fs-chord-2: 29px;          /* deux accords dans la mesure */
+  --fs-chord-portrait: 32px;
+  --fs-chord-portrait-2: 28px; /* accords empilés */
+  --fs-chrono: 104px;
+  --fs-chrono-portrait: 128px;
+  --fs-pause: 96px;
+  --fs-bpm: 60px;
+
+  /* Rayons, traits et allure */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --bw: 1px;
+  --bw-grid: 2px;
+  --label-case: uppercase;
+  --label-tracking: 0.1em;
+  --label-before: "";
+  --label-after: "";
+  --title-case: none;
+  --title-tracking: 0;
+  --panel-bg: var(--c-surface);
+  --panel-border: 1px solid var(--c-line);
+  --panel-rule: var(--panel-border);
+  --panel-now-border: 2px solid var(--c-action);
+  --panel-now-rule: var(--panel-now-border);
+  --panel-devoir-bg: var(--c-devoir-bg);
+  --panel-devoir-border: 1px solid var(--c-devoir-dim);
+  --panel-devoir-rule: var(--panel-devoir-border);
+  --panel-pad: 18px 22px;
+  --btn-case: none;
+  --btn-tracking: 0;
+  --btn-primary-clip: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  --row-next-bg: var(--c-now-bg);
+  --row-next-ink: var(--c-ink);
+  --row-next-border: 1px solid var(--c-action);
+  --now-cell-bg: var(--c-now-bg);
+  --now-cell-ink: var(--c-now-ink);
+  --now-cell-ring: inset 0 0 0 3px var(--c-action);
+  --meter-h: 8px;
+  --modcard-border: 3px solid var(--c-rar-proto);
+  --meta-theme-color: #f3f2ee;
+}
+
+/* Mouvement réduit : toutes les durées tombent à zéro */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Pendant un bloc (classe posée sur <body> par l'app) : aucune animation, aucune transition, y compris sur les cases du métronome. */
+.is-in-block *, .is-in-block *::before, .is-in-block *::after { animation: none !important; transition: none !important; }

@@ -1,0 +1,446 @@
+{
+  "version": 1,
+  "_doc": "Règles globales de LOW END. Toutes les valeurs numériques sont réglables ; le simulateur lit ce fichier.",
+  "stats": {
+    "PIR": "Piratage",
+    "CBT": "Combat",
+    "MAT": "Matériel",
+    "SOC": "Social"
+  },
+  "rarities": [
+    {
+      "id": "recup",
+      "name": "Récup",
+      "rank": 1,
+      "color": "#8b93a1",
+      "gearStatMult": 1.0,
+      "affixes": 0,
+      "recruitGrowth": 0.8,
+      "recruitCostMult": 0.6
+    },
+    {
+      "id": "street",
+      "name": "Street",
+      "rank": 2,
+      "color": "#2ee59d",
+      "gearStatMult": 1.1,
+      "affixes": 1,
+      "recruitGrowth": 0.9,
+      "recruitCostMult": 1.0
+    },
+    {
+      "id": "corpo",
+      "name": "Corpo",
+      "rank": 3,
+      "color": "#38a8ff",
+      "gearStatMult": 1.2,
+      "affixes": 2,
+      "recruitGrowth": 1.0,
+      "recruitCostMult": 1.6
+    },
+    {
+      "id": "prototype",
+      "name": "Prototype",
+      "rank": 4,
+      "color": "#b06bff",
+      "gearStatMult": 1.35,
+      "affixes": 3,
+      "recruitGrowth": 1.1,
+      "recruitCostMult": 2.6
+    },
+    {
+      "id": "fantome",
+      "name": "Fantôme",
+      "rank": 5,
+      "color": "#ff3fb0",
+      "gearStatMult": 1.5,
+      "affixes": 3,
+      "recruitGrowth": 1.25,
+      "recruitCostMult": 4.0,
+      "signature": true
+    }
+  ],
+  "dice": {
+    "_doc": "Jet de 2d10 (2 à 20, en cloche). Marge = score + jet + bonus - DD. Marge >= 0 : succès ; de -1 à partialFloor : succès partiel ; en dessous : échec. Jet naturel >= critAtLeast : l'issue monte d'un cran (succès critique si déjà succès). Jet naturel <= fumbleAtMost : l'issue descend d'un cran (échec critique si déjà échec).",
+    "count": 2,
+    "sides": 10,
+    "partialFloor": -5,
+    "critAtLeast": 19,
+    "fumbleAtMost": 3
+  },
+  "squad": {
+    "_doc": "Score d'équipe sur une stat = meilleur runner (meneur) + supportCoef x le meilleur des autres (un seul soutien par stat). Chaque runner au-delà de la taille idéale du contrat coûte exposurePenalty au jet. Les bonus de jet venant des runners (traits, talents, équipement) ne comptent que pour un meneur et sont plafonnés.",
+    "max": 4,
+    "supportCoef": 0.4,
+    "exposurePenalty": 2,
+    "runnerRollBonusCap": 5
+  },
+  "modBonus": {
+    "_doc": "Bonus au jet quand le bloc est terminé avec un mod équipé (mod vaincu), selon sa rareté. La note d'auto-évaluation et le tempo n'entrent jamais dans la résolution.",
+    "none": 0,
+    "recup": 1,
+    "street": 2,
+    "corpo": 3,
+    "prototype": 5,
+    "fantome": 7
+  },
+  "outcomes": {
+    "critSuccess": {
+      "credits": 1.5,
+      "rep": 1.25,
+      "xp": 1.25,
+      "gearChance": 0.6,
+      "gearRarityStep": 1,
+      "injuryChance": 0
+    },
+    "success": {
+      "credits": 1.0,
+      "rep": 1.0,
+      "xp": 1.0,
+      "gearChance": 0.15,
+      "gearRarityStep": 0,
+      "injuryChance": 0
+    },
+    "partial": {
+      "credits": 0.5,
+      "rep": 0.4,
+      "xp": 0.6,
+      "gearChance": 0.05,
+      "gearRarityStep": 0,
+      "injuryChance": 0.2,
+      "injuryKind": "light"
+    },
+    "fail": {
+      "credits": 0,
+      "rep": -0.25,
+      "xp": 0.3,
+      "gearChance": 0,
+      "gearRarityStep": 0,
+      "injuryChance": 1.0,
+      "injuryKind": "normal"
+    },
+    "critFail": {
+      "credits": 0,
+      "rep": -0.5,
+      "xp": 0.3,
+      "gearChance": 0,
+      "gearRarityStep": 0,
+      "injuryChance": 1.0,
+      "injuryKind": "severe"
+    },
+    "aborted": {
+      "credits": 0,
+      "rep": 0,
+      "xp": 0,
+      "gearChance": 0,
+      "gearRarityStep": 0,
+      "injuryChance": 0
+    }
+  },
+  "injury": {
+    "_doc": "Durées en blocs de pratique terminés (un bloc abandonné ne fait pas guérir). Échec : un runner envoyé, tiré au hasard. Échec critique : blessure grave (durée x2) sur un runner, et blessure normale sur un second si l'équipe en compte deux ou plus.",
+    "light": {
+      "base": 1,
+      "perTier": 0.5
+    },
+    "normal": {
+      "base": 2,
+      "perTier": 1
+    },
+    "severe": {
+      "base": 4,
+      "perTier": 2
+    },
+    "clinicCostPerBlock": [
+      0,
+      20,
+      35,
+      55,
+      80,
+      110,
+      150
+    ]
+  },
+  "progression": {
+    "maxLevel": 20,
+    "xpToNext": {
+      "_doc": "XP pour passer du niveau L à L+1 = round(a x L^p)",
+      "a": 55,
+      "p": 1.55
+    },
+    "benchXpShare": 0.25,
+    "talentLevels": [
+      5,
+      10,
+      15,
+      20
+    ],
+    "talentChoices": 2
+  },
+  "board": {
+    "_doc": "3 contrats par jour, tirés d'une graine (sauvegarde + date). Ils expirent à minuit. Au-delà, chaque bloc peut lancer un petit boulot sans choix.",
+    "contractsPerDay": 3,
+    "slots": [
+      {
+        "id": "sur",
+        "label": "Sûr",
+        "tierOffset": -1,
+        "dcOffset": -1,
+        "rewardMult": 0.9
+      },
+      {
+        "id": "standard",
+        "label": "Standard",
+        "tierOffset": 0,
+        "dcOffset": 0,
+        "rewardMult": 1.0
+      },
+      {
+        "id": "risque",
+        "label": "Risqué",
+        "tierOffset": 0,
+        "dcOffset": 4,
+        "rewardMult": 1.6
+      }
+    ],
+    "dcVariation": [
+      -1,
+      2
+    ],
+    "complicationChance": 0.45
+  },
+  "gig": {
+    "_doc": "Petit boulot : lancé en un geste, équipe choisie automatiquement, sans blessure ni réputation ni équipement.",
+    "tierOffset": -1,
+    "dcOffset": -3,
+    "creditMult": 0.35,
+    "xpMult": 0.5,
+    "rep": 0
+  },
+  "season": {
+    "_doc": "Les actes s'ouvrent à une fraction de la saison (dates de début et fin choisies au lancement). Un palier exige la réputation ET l'ouverture de son acte.",
+    "acts": [
+      {
+        "id": 1,
+        "name": "Acte I · Bas-fonds",
+        "opensAt": 0.0,
+        "tiers": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Acte II · Ascension",
+        "opensAt": 0.3,
+        "tiers": [
+          3,
+          4
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Acte III · Haute Ville",
+        "opensAt": 0.6,
+        "tiers": [
+          5,
+          6
+        ]
+      }
+    ],
+    "grandCoupOpensAt": 0.8,
+    "catchUp": {
+      "_doc": "Rattrapage : si la réputation est sous la courbe cible, les gains de réputation et d'XP sont multipliés (premier palier atteint en partant du plus bas). Rien ne se perd quand tu pratiques moins.",
+      "targetRepAtFraction": [
+        [
+          0,
+          0
+        ],
+        [
+          0.07,
+          350
+        ],
+        [
+          0.3,
+          2000
+        ],
+        [
+          0.45,
+          4000
+        ],
+        [
+          0.6,
+          6500
+        ],
+        [
+          0.75,
+          9500
+        ],
+        [
+          1,
+          15000
+        ]
+      ],
+      "levels": [
+        {
+          "below": 0.5,
+          "rep": 2.0,
+          "xp": 1.5
+        },
+        {
+          "below": 0.8,
+          "rep": 1.5,
+          "xp": 1.25
+        }
+      ]
+    }
+  },
+  "grandCoup": {
+    "stages": 5,
+    "tier": 6,
+    "dcStep": 2,
+    "idealCrew": 4,
+    "weights": {
+      "PIR": 0.25,
+      "CBT": 0.25,
+      "MAT": 0.25,
+      "SOC": 0.25
+    },
+    "stageRewards": {
+      "credits": 900,
+      "rep": 120,
+      "xp": 200
+    },
+    "attemptsPerDay": 1
+  },
+  "forge": {
+    "_doc": "Forge mémorielle : tous les N blocs terminés, un objet unique est forgé à partir de l'axe le plus pratiqué depuis la dernière forge.",
+    "everyBlocks": 80,
+    "rarity": "prototype",
+    "axisToStat": {
+      "MAN": "MAT",
+      "MOD": "MAT",
+      "WLK": "CBT",
+      "RYT": "CBT",
+      "DEC": "PIR",
+      "EAR": "PIR",
+      "IMP": "SOC",
+      "REP": "SOC"
+    }
+  },
+  "start": {
+    "credits": 150,
+    "runners": [
+      {
+        "role": "solo",
+        "rarity": "street",
+        "level": 1
+      },
+      {
+        "role": "netrunner",
+        "rarity": "street",
+        "level": 1
+      }
+    ],
+    "gear": [
+      {
+        "slot": "arme",
+        "rarity": "recup",
+        "tier": 1
+      },
+      {
+        "slot": "outil",
+        "rarity": "recup",
+        "tier": 1
+      }
+    ]
+  },
+  "recruit": {
+    "_doc": "3 candidats, renouvelés tous les refreshBlocks blocs terminés. Coût = base x niveau x multiplicateur de rareté + rosterFee x (taille actuelle - 1).",
+    "candidates": 3,
+    "refreshBlocks": 10,
+    "base": 90,
+    "rosterFee": 220,
+    "levelRange": [
+      0.7,
+      1.0
+    ],
+    "maxRoster": 4,
+    "maxSameRole": 2
+  },
+  "inventory": {
+    "maxItems": 24,
+    "scrapValue": {
+      "recup": 10,
+      "street": 25,
+      "corpo": 60,
+      "prototype": 150,
+      "fantome": 400
+    },
+    "scrapPerTier": 0.5
+  },
+  "debrief": {
+    "_doc": "Fenêtre de gestion : actions de jeu possibles sur l'écran de rapport pendant ce délai, puis verrouillées jusqu'au bloc suivant.",
+    "windowSeconds": 120
+  },
+  "alert": {
+    "_doc": "Alerte par quartier (0 à cap) : chaque contrat du quartier ajoute l'Alerte à son DD et +rewardPerPoint à ses crédits. Elle bouge selon l'issue (delta). Après le Grand Coup, l'Alerte du palier 6 n'a plus de plafond : c'est la Chaleur de fin de jeu. Les petits boulots et le Grand Coup l'ignorent.",
+    "dcPerPoint": 1,
+    "rewardPerPoint": 0.05,
+    "cap": 15,
+    "delta": {
+      "critSuccess": 1,
+      "success": 1,
+      "partial": -1,
+      "fail": -3,
+      "critFail": -4,
+      "aborted": 0
+    }
+  },
+  "upgrade": {
+    "_doc": "Recalibrage : monte un objet d'un palier (jusqu'au palier débloqué), stats de base et affixes recalculés. Coût = costPerTier[palier cible] x multiplicateur de rareté.",
+    "costPerTier": [
+      0,
+      0,
+      150,
+      350,
+      700,
+      1300,
+      2200
+    ],
+    "rarityMult": {
+      "recup": 0.5,
+      "street": 0.8,
+      "corpo": 1.0,
+      "prototype": 1.4,
+      "fantome": 2.0
+    }
+  },
+  "modLoot": {
+    "_doc": "Second effet du mod vaincu : chance d'équipement en plus, et un cran de rareté pour un mod Fantôme.",
+    "gearChance": {
+      "none": 0,
+      "recup": 0.04,
+      "street": 0.07,
+      "corpo": 0.11,
+      "prototype": 0.16,
+      "fantome": 0.25
+    },
+    "rarityStep": {
+      "fantome": 1
+    }
+  },
+  "abandon": {
+    "_doc": "Intégration : le premier bloc abandonné de la journée (freePerDay) fait seulement avorter la mission (outcomes.aborted). Au-delà, l'abandon d'un bloc avec mission coûte : perte de réputation (fraction de la valeur du contrat) et blessure d'un runner envoyé. Jamais sur un petit boulot. Tous les abandons de la journée comptent, avec ou sans mission.",
+    "freePerDay": 1,
+    "penalty": {
+      "rep": -0.25,
+      "injuryKind": "normal",
+      "injuryChance": 1
+    }
+  },
+  "modXpBonus": {
+    "_doc": "Intégration : la spec donne au mod vaincu un bonus d'XP (+10 à +75 % selon la rareté, champ bonusXpPct de l'événement bloc_termine). S'il est actif, il multiplie l'XP de la mission, en plus du bonus au jet (modBonus).",
+    "apply": true
+  }
+}
