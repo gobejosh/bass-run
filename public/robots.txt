@@ -1,0 +1,3 @@
+# Basse Run : app personnelle, à ne pas indexer ni explorer.
+User-agent: *
+Disallow: /

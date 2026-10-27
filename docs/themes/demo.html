@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basse Run — essai des thèmes</title>
+<link rel="stylesheet" href="themes.css">
+<script src="theme.js"></script>
+<style>
+  /* Composants de référence : ils n'utilisent QUE les jetons de themes.css. */
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--c-bg); color: var(--c-ink);
+    font-family: var(--f-text); font-size: var(--fs-body); line-height: var(--lh-body);
+  }
+  h1, h2, p, ul, fieldset { margin: 0; }
+  ul { padding: 0; list-style: none; }
+  :focus-visible { outline: var(--focus-width) solid var(--c-focus); outline-offset: var(--focus-offset); }
+
+  .page { max-width: 1280px; margin: 0 auto; padding: var(--pad-screen); display: flex; flex-direction: column; gap: var(--sp-7); }
+  .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--gap-panels); align-items: start; }
+
+  .label {
+    font: var(--fw-label) var(--fs-label)/1.2 var(--f-label); text-transform: var(--label-case);
+    letter-spacing: var(--label-tracking); color: var(--c-ink-3);
+  }
+  .label::before { content: var(--label-before); }
+  .label::after { content: var(--label-after); }
+  .label--now { color: var(--c-action); }
+  .label--devoir { color: var(--c-devoir); }
+  .h1 { font: var(--fw-display) var(--fs-h1)/1 var(--f-display); text-transform: var(--title-case); letter-spacing: var(--title-tracking); }
+  .feature { font: var(--fw-display) var(--fs-feature)/1 var(--f-display); text-transform: var(--title-case); letter-spacing: var(--title-tracking); }
+  .mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+  .soft { color: var(--c-ink-2); }
+  .muted { color: var(--c-ink-3); font-size: var(--fs-meta); }
+
+  .panel {
+    background: var(--panel-bg); border: var(--panel-border); border-top: var(--panel-rule);
+    border-radius: var(--r-lg); padding: var(--panel-pad); display: flex; flex-direction: column; gap: var(--sp-3);
+  }
+  .panel--now { border: var(--panel-now-border); border-top: var(--panel-now-rule); }
+  .panel--devoir { background: var(--panel-devoir-bg); border: var(--panel-devoir-border); border-top: var(--panel-devoir-rule); }
+
+  .btn {
+    min-height: var(--target-main); padding: 0 var(--sp-5); display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+    border: var(--bw) solid var(--c-line-strong); border-radius: var(--r-md); background: transparent; color: var(--c-ink);
+    font: 600 17px var(--f-text); text-transform: var(--btn-case); letter-spacing: var(--btn-tracking); cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease);
+  }
+  .btn--primary { background: var(--c-action); border-color: var(--c-action); color: var(--c-on-action); font-weight: 700; clip-path: var(--btn-primary-clip); }
+  .btn--abandon { border-color: var(--c-abandon-dim); color: var(--c-abandon); }
+  .btn--scene { min-height: var(--target-scene); }
+  .key { font: 600 13px/1 var(--f-mono); border: 1px solid currentColor; border-radius: var(--r-sm); padding: 3px 6px; }
+
+  .blocks { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .blk { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: var(--sp-3); align-items: center; min-height: 56px; padding: var(--sp-2) var(--sp-3); border: var(--bw) solid transparent; border-radius: var(--r-md); }
+  .blk__n { font: 700 18px var(--f-mono); }
+  .blk__t { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .blk__s { font: 600 var(--fs-small) var(--f-mono); white-space: nowrap; }
+  .blk--done { color: var(--c-ink-3); }
+  .blk--next { background: var(--row-next-bg); color: var(--row-next-ink); border: var(--row-next-border); }
+  .blk--todo { background: var(--c-raised); }
+  .code { font-family: var(--f-mono); font-weight: 600; }
+
+  .meter { height: var(--meter-h); background: var(--c-raised); border-radius: var(--r-sm); overflow: hidden; }
+  .meter > span { display: block; height: 100%; background: var(--c-action); }
+
+  .scene { background: var(--c-scene); border: var(--bw) solid var(--c-line); border-radius: var(--r-lg); padding: var(--pad-scene); display: flex; flex-direction: column; gap: var(--sp-4); }
+  .scene__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--sp-5); }
+  .chrono { font: var(--fw-chrono) var(--fs-chrono)/0.9 var(--f-chrono); font-variant-numeric: tabular-nums; }
+  .bpm { font: var(--fw-chrono) var(--fs-bpm)/0.9 var(--f-chrono); font-variant-numeric: tabular-nums; }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 72px; border-top: 1px solid var(--c-line); border-left: var(--bw-grid) solid var(--c-line); }
+  .bar { position: relative; display: flex; align-items: center; justify-content: center; gap: var(--sp-5); border-right: var(--bw-grid) solid var(--c-line); border-bottom: 1px solid var(--c-line); }
+  .bar__n { position: absolute; top: 5px; left: 8px; font: 500 var(--fs-measure-num)/1 var(--f-mono); color: var(--c-ink-3); }
+  .chord { font: var(--fw-chord) var(--fs-chord)/1 var(--f-chord); white-space: nowrap; }
+  .bar--two .chord { font-size: var(--fs-chord-2); }
+  .bar--now { background: var(--now-cell-bg); box-shadow: var(--now-cell-ring); }
+  .bar--now .chord, .bar--now .bar__n { color: var(--now-cell-ink); }
+  .metro { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-3); }
+  .beat { height: var(--metro-cell-h); border: 2px solid var(--c-line-strong); border-radius: var(--r-md); background: var(--c-raised); }
+  .beat.is-on { background: var(--c-action); border-color: var(--c-action); } /* aucune transition : le changement est instantané */
+  .modeq { display: inline-flex; align-items: center; gap: var(--sp-3); padding: var(--sp-2) var(--sp-4); border: var(--bw) solid var(--c-rar-corpo); border-radius: var(--r-md); background: var(--c-surface); }
+
+  .plate { display: inline-flex; align-items: center; align-self: flex-start; padding: 5px 8px; border-radius: var(--r-sm); color: var(--c-rar-ink); font: 700 13px/1 var(--f-label); letter-spacing: 0.08em; text-transform: uppercase; }
+  .plate--recup { background: var(--c-rar-recup); }
+  .plate--street { background: var(--c-rar-street); }
+  .plate--corpo { background: var(--c-rar-corpo); }
+  .plate--proto { background: var(--c-rar-proto); }
+  .plate--fantome { background: var(--c-rar-fantome); }
+  .modcard { border: var(--modcard-border); border-top: 10px solid var(--c-rar-proto); border-radius: var(--r-lg); background: var(--panel-bg); padding: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-3); }
+  .modcard__name { font: var(--fw-display) 44px/1 var(--f-display); text-transform: var(--title-case); }
+  .pause { font: var(--fw-chrono) var(--fs-pause)/0.9 var(--f-chrono); font-variant-numeric: tabular-nums; }
+
+  .picker { border: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-3); }
+  .picker__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--sp-3); }
+  .picker__opt { position: relative; display: flex; flex-direction: column; gap: var(--sp-2); min-height: var(--target-main); padding: var(--sp-3) var(--sp-4); border: var(--bw) solid var(--c-line-strong); border-radius: var(--r-md); cursor: pointer; }
+  .picker__opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .picker__opt:has(input:checked) { border: 3px solid var(--c-action); }
+  .picker__opt:has(input:focus-visible) { outline: var(--focus-width) solid var(--c-focus); outline-offset: var(--focus-offset); }
+  .picker__name { font-weight: 700; }
+  .swatches { display: flex; gap: 4px; }
+  .swatches i { width: 22px; height: 22px; border: 1px solid #7f7d75; }
+</style>
+</head>
+<body>
+<main class="page">
+  <header style="display: flex; flex-direction: column; gap: var(--sp-2)">
+    <span class="label">Mardi 27 octobre</span>
+    <h1 class="h1">Essai des thèmes</h1>
+  </header>
+
+  <fieldset class="picker">
+    <legend class="label" style="margin-bottom: var(--sp-3)">Thème de l’application</legend>
+    <div class="picker__list" id="picker">
+      <label class="picker__opt"><input type="radio" name="theme" value="neon"><span class="picker__name">Pupitre néon</span><span class="swatches" aria-hidden="true"><i style="background:#120f24"></i><i style="background:#4fe3ee"></i><i style="background:#ffb04a"></i></span></label>
+      <label class="picker__opt"><input type="radio" name="theme" value="phosphore"><span class="picker__name">Terminal phosphore</span><span class="swatches" aria-hidden="true"><i style="background:#040a06"></i><i style="background:#b9ffc8"></i><i style="background:#ffb547"></i></span></label>
+      <label class="picker__opt"><input type="radio" name="theme" value="signal"><span class="picker__name">Signalétique industrielle</span><span class="swatches" aria-hidden="true"><i style="background:#2a2c2e"></i><i style="background:#ffd23a"></i><i style="background:#7dbdff"></i></span></label>
+      <label class="picker__opt"><input type="radio" name="theme" value="tokyo"><span class="picker__name">Éditorial Néo-Tokyo</span><span class="swatches" aria-hidden="true"><i style="background:#0a0a0a"></i><i style="background:#ff3d81"></i><i style="background:#ffe066"></i></span></label>
+      <label class="picker__opt"><input type="radio" name="theme" value="jour"><span class="picker__name">Pupitre de jour</span><span class="swatches" aria-hidden="true"><i style="background:#f3f2ee"></i><i style="background:#007380"></i><i style="background:#9a5200"></i></span></label>
+    </div>
+  </fieldset>
+
+  <div class="row">
+    <section class="panel panel--now" aria-label="Prochain bloc">
+      <span class="label label--now">Prochain bloc · 3 sur 5</span>
+      <span class="feature">Autumn Leaves</span>
+      <span class="soft"><span class="code">WLK-03</span> · Walk sur une grille entière · 25 min</span>
+      <div class="meter" aria-label="50 minutes jouées sur 2 heures"><span style="width: 42%"></span></div>
+      <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap">
+        <button type="button" class="btn btn--primary" style="flex: 1">Préparer ce bloc <span class="key">Espace</span></button>
+        <button type="button" class="btn">Bloc libre</button>
+      </div>
+    </section>
+    <section class="panel panel--devoir" aria-label="Devoirs du prof">
+      <h2 class="label label--devoir">Devoirs du prof · cours jeu. 29</h2>
+      <div style="display: flex; justify-content: space-between; gap: var(--sp-3)"><b>Autumn Leaves</b><span class="soft">walking + thème</span></div>
+      <div style="display: flex; justify-content: space-between; gap: var(--sp-3)"><b>Blue Bossa</b><span class="soft">passage B</span></div>
+      <ul class="blocks" aria-label="Blocs de la séance">
+        <li class="blk blk--done"><span class="blk__n">2</span><span class="blk__t"><span class="code">IMP-02</span> · Solar</span><span class="blk__s">fait</span></li>
+        <li class="blk blk--next"><span class="blk__n">3</span><span class="blk__t"><span class="code">WLK-03</span> · Autumn Leaves</span><span class="blk__s">suivant</span></li>
+        <li class="blk blk--todo"><span class="blk__n">4</span><span class="blk__t"><span class="code">REP-01</span> · Blue Bossa</span><span class="blk__s">prévu</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="scene" aria-label="Bloc en cours">
+    <div class="scene__head">
+      <div style="display: flex; flex-direction: column; gap: var(--sp-1)"><span class="feature" style="font-size: 32px">Autumn Leaves</span><span class="soft"><span class="code">WLK-03</span> · Sol mineur · bloc 3 sur 5</span></div>
+      <div class="modeq"><span class="plate plate--corpo">Corpo</span><b>Zone verrouillée</b><span class="muted">case 7</span></div>
+      <span class="chrono">18:42</span>
+    </div>
+    <div class="grid" aria-label="Mesures 9 à 16">
+      <div class="bar"><span class="bar__n">9</span><span class="chord">Do m7</span></div>
+      <div class="bar"><span class="bar__n">10</span><span class="chord">Fa 7</span></div>
+      <div class="bar"><span class="bar__n">11</span><span class="chord">Si♭ maj7</span></div>
+      <div class="bar"><span class="bar__n">12</span><span class="chord">Mi♭ maj7</span></div>
+      <div class="bar bar--now" aria-current="true"><span class="bar__n">13</span><span class="chord">La m7♭5</span></div>
+      <div class="bar"><span class="bar__n">14</span><span class="chord">Ré 7</span></div>
+      <div class="bar bar--two"><span class="bar__n">15</span><span class="chord">Sol m7</span><span class="chord">Do 7</span></div>
+      <div class="bar bar--two"><span class="bar__n">16</span><span class="chord">Fa m7</span><span class="chord">Si♭ 7</span></div>
+    </div>
+    <div style="display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--sp-5); align-items: center">
+      <span><span class="bpm">119</span> <span class="muted">BPM</span></span>
+      <div class="metro" id="metro"><div class="beat is-on"></div><div class="beat"></div><div class="beat"></div><div class="beat"></div></div>
+      <button type="button" class="btn btn--scene" id="metro-toggle" aria-pressed="false">Tester le métronome</button>
+    </div>
+    <div style="display: flex; gap: var(--sp-3)">
+      <button type="button" class="btn btn--scene">Pause <span class="key">P</span></button>
+      <button type="button" class="btn btn--scene btn--abandon">Abandonner…</button>
+    </div>
+  </section>
+
+  <div class="row">
+    <section class="modcard" aria-label="Mod obtenu">
+      <span class="plate plate--proto">Prototype</span>
+      <span class="modcard__name">Two-feel vers four</span>
+      <span class="soft">Bascule annoncée au hasard par l’app</span>
+      <div style="display: flex; gap: var(--sp-2); flex-wrap: wrap">
+        <span class="plate plate--recup">Récup</span><span class="plate plate--street">Street</span><span class="plate plate--corpo">Corpo</span><span class="plate plate--proto">Prototype</span><span class="plate plate--fantome">Fantôme</span>
+      </div>
+    </section>
+    <section class="panel panel--now" aria-label="Pause">
+      <span class="label label--now">Pause</span>
+      <span class="pause">4:12</span>
+      <button type="button" class="btn btn--primary btn--scene">Préparer le bloc 4 <span class="key">Espace</span></button>
+    </section>
+  </div>
+</main>
+
+<script>
+  (function () {
+    var picker = document.getElementById('picker');
+    var current = window.BasseRunTheme.get();
+    var input = picker.querySelector('input[value="' + current + '"]');
+    if (input) input.checked = true;
+    document.addEventListener('basse-run:theme', function (e) {
+      var opt = picker.querySelector('input[value="' + e.detail.id + '"]');
+      if (opt) opt.checked = true;
+    });
+    picker.addEventListener('change', function (e) {
+      if (e.target && e.target.name === 'theme') window.BasseRunTheme.set(e.target.value);
+    });
+
+    // Démonstration du seul changement autorisé pendant un bloc : la couleur des cases, sans transition.
+    var beats = document.querySelectorAll('#metro .beat');
+    var toggle = document.getElementById('metro-toggle');
+    var timer = null, beat = 0;
+    toggle.addEventListener('click', function () {
+      if (timer) {
+        clearInterval(timer); timer = null;
+        document.body.classList.remove('is-in-block');
+        toggle.setAttribute('aria-pressed', 'false');
+        return;
+      }
+      document.body.classList.add('is-in-block');
+      toggle.setAttribute('aria-pressed', 'true');
+      timer = setInterval(function () {
+        beat = (beat + 1) % 4;
+        for (var i = 0; i < beats.length; i++) beats[i].classList.toggle('is-on', i === beat);
+      }, 60000 / 119);
+    });
+  })();
+</script>
+</body>
+</html>

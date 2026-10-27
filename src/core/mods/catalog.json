@@ -1,0 +1,585 @@
+{
+  "version": 1,
+  "source": "Spécification des exercices, section Mods (rev. 28, 27/10/2026)",
+  "mods": [
+    {
+      "id": "black-out",
+      "name": "Black-out",
+      "constraint": "Sans regarder le manche",
+      "type": "simple",
+      "exercises": ["MAN-01", "MAN-02", "MAN-03", "MOD-01", "REP-01", "DEC-02"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Tempo -30 %", "tempoPct": -30, "enforcement": "consigne" },
+        "street":    { "label": "Tempo -20 %", "tempoPct": -20, "enforcement": "consigne" },
+        "corpo":     { "label": "Tempo -10 %", "tempoPct": -10, "enforcement": "consigne" },
+        "prototype": { "label": "Tempo de référence", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Tempo +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "mono-cable",
+      "name": "Mono-câble",
+      "constraint": "Tout sur une seule corde [corde]",
+      "type": "simple",
+      "exercises": ["MAN-02", "MOD-01", "IMP-01", "IMP-02", "IMP-03", "REP-01"],
+      "enforcement": "consigne",
+      "dropParams": [{ "key": "corde", "values": ["Si", "Mi", "La", "Ré", "Sol"] }],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Tempo -30 %", "tempoPct": -30, "enforcement": "consigne" },
+        "street":    { "label": "Tempo -20 %", "tempoPct": -20, "enforcement": "consigne" },
+        "corpo":     { "label": "Tempo -10 %", "tempoPct": -10, "enforcement": "consigne" },
+        "prototype": { "label": "Tempo de référence", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Tempo +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "zone-verrouillee",
+      "name": "Zone verrouillée",
+      "constraint": "Sans quitter une position [case]",
+      "type": "simple",
+      "exercises": ["MAN-02", "MAN-03", "WLK-01", "WLK-02", "WLK-03", "MOD-01", "IMP-01", "IMP-02", "IMP-03", "DEC-01", "DEC-02"],
+      "enforcement": "consigne",
+      "dropParams": [{ "key": "case", "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"] }],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Tempo -30 %", "tempoPct": -30, "enforcement": "consigne" },
+        "street":    { "label": "Tempo -20 %", "tempoPct": -20, "enforcement": "consigne" },
+        "corpo":     { "label": "Tempo -10 %", "tempoPct": -10, "enforcement": "consigne" },
+        "prototype": { "label": "Tempo de référence", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Tempo +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "tierces",
+      "name": "Tierces",
+      "constraint": "Mode joué en intervalles de tierces, en nommant les notes",
+      "type": "simple",
+      "exercises": ["MAN-02"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Tempo -30 %", "tempoPct": -30, "enforcement": "consigne" },
+        "street":    { "label": "Tempo -20 %", "tempoPct": -20, "enforcement": "consigne" },
+        "corpo":     { "label": "Tempo -10 %", "tempoPct": -10, "enforcement": "consigne" },
+        "prototype": { "label": "Tempo de référence", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Tempo +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "arpeges-purs",
+      "name": "Arpèges purs",
+      "constraint": "Uniquement les notes de l'accord",
+      "type": "simple",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Tempo -30 %", "tempoPct": -30, "enforcement": "consigne" },
+        "street":    { "label": "Tempo -20 %", "tempoPct": -20, "enforcement": "consigne" },
+        "corpo":     { "label": "Tempo -10 %", "tempoPct": -10, "enforcement": "consigne" },
+        "prototype": { "label": "Tempo de référence", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Tempo +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "registre-impose",
+      "name": "Registre imposé",
+      "constraint": "Impro dans un registre tiré [grave, médium, aigu]",
+      "type": "simple",
+      "exercises": ["IMP-01", "IMP-02", "IMP-03"],
+      "enforcement": "consigne",
+      "dropParams": [{ "key": "registre", "values": ["grave", "médium", "aigu"] }],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Tempo -30 %", "tempoPct": -30, "enforcement": "consigne" },
+        "street":    { "label": "Tempo -20 %", "tempoPct": -20, "enforcement": "consigne" },
+        "corpo":     { "label": "Tempo -10 %", "tempoPct": -10, "enforcement": "consigne" },
+        "prototype": { "label": "Tempo de référence", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Tempo +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+
+    {
+      "id": "cadence",
+      "name": "Cadence",
+      "constraint": "Placement strict, sans rater un temps",
+      "type": "intensity",
+      "exercises": ["MAN-01", "MAN-02"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Blanches", "tempoPct": 0, "effects": { "noteValue": "blanches" }, "enforcement": "consigne" },
+        "street":    { "label": "Noires à -20 %", "tempoPct": -20, "effects": { "noteValue": "noires" }, "enforcement": "consigne" },
+        "corpo":     { "label": "Noires à -10 %", "tempoPct": -10, "effects": { "noteValue": "noires" }, "enforcement": "consigne" },
+        "prototype": { "label": "Noires", "tempoPct": 0, "effects": { "noteValue": "noires" }, "enforcement": "consigne" },
+        "fantome":   { "label": "Croches à -30 %", "tempoPct": -30, "effects": { "noteValue": "croches" }, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "chrono-serre",
+      "name": "Chrono serré",
+      "constraint": "Temps limite réduit",
+      "type": "intensity",
+      "exercises": ["MAN-01"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Temps limite x0,8", "tempoPct": 0, "effects": { "timeLimitFactor": 0.8 }, "enforcement": "app" },
+        "street":    { "label": "x0,7", "tempoPct": 0, "effects": { "timeLimitFactor": 0.7 }, "enforcement": "app" },
+        "corpo":     { "label": "x0,6", "tempoPct": 0, "effects": { "timeLimitFactor": 0.6 }, "enforcement": "app" },
+        "prototype": { "label": "x0,5", "tempoPct": 0, "effects": { "timeLimitFactor": 0.5 }, "enforcement": "app" },
+        "fantome":   { "label": "x0,4", "tempoPct": 0, "effects": { "timeLimitFactor": 0.4 }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "annonce-vocale",
+      "name": "Annonce vocale",
+      "constraint": "Annoncer à voix haute avant de jouer",
+      "type": "intensity",
+      "exercises": ["MAN-01", "MOD-01", "REP-01"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Note", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "Note + corde", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "Note + case", "tempoPct": 0, "enforcement": "consigne" },
+        "prototype": { "label": "Note + corde + case", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Idem, en anticipant d'un temps", "tempoPct": 0, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "enharmonie",
+      "name": "Enharmonie",
+      "constraint": "Notes affichées sous des noms enharmoniques",
+      "type": "intensity",
+      "exercises": ["MAN-01"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Dièses et bémols alternés", "tempoPct": 0, "effects": { "spelling": "alternate" }, "enforcement": "app" },
+        "street":    { "label": "Noms bémols seuls", "tempoPct": 0, "effects": { "spelling": "flats" }, "enforcement": "app" },
+        "corpo":     { "label": "Mi#, Si#, Fab, Dob", "tempoPct": 0, "effects": { "spelling": "edge" }, "enforcement": "app" },
+        "prototype": { "label": "Doubles altérations occasionnelles", "tempoPct": 0, "effects": { "spelling": "double_rare" }, "enforcement": "app" },
+        "fantome":   { "label": "Doubles altérations fréquentes", "tempoPct": 0, "effects": { "spelling": "double_frequent" }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "toutes-positions",
+      "name": "Toutes positions",
+      "constraint": "Trouver toutes les positions de la note sur chaque corde, jusqu'à la case indiquée",
+      "type": "intensity",
+      "exercises": ["MAN-01"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Jusqu'à la case 5", "tempoPct": 0, "effects": { "maxFret": 5 }, "enforcement": "app" },
+        "street":    { "label": "Case 7", "tempoPct": 0, "effects": { "maxFret": 7 }, "enforcement": "app" },
+        "corpo":     { "label": "Case 9", "tempoPct": 0, "effects": { "maxFret": 9 }, "enforcement": "app" },
+        "prototype": { "label": "Case 12", "tempoPct": 0, "effects": { "maxFret": 12 }, "enforcement": "app" },
+        "fantome":   { "label": "Tout le manche", "tempoPct": 0, "effects": { "maxFret": null }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "sur-le-temps",
+      "name": "Sur le temps",
+      "constraint": "Jouer la note demandée dans une fenêtre calée sur le métronome",
+      "type": "intensity",
+      "exercises": ["MAN-03"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Note dans les 4 temps", "tempoPct": 0, "effects": { "beatWindow": { "beats": 4 } }, "enforcement": "app" },
+        "street":    { "label": "3 temps", "tempoPct": 0, "effects": { "beatWindow": { "beats": 3 } }, "enforcement": "app" },
+        "corpo":     { "label": "2 temps", "tempoPct": 0, "effects": { "beatWindow": { "beats": 2 } }, "enforcement": "app" },
+        "prototype": { "label": "Temps suivant", "tempoPct": 0, "effects": { "beatWindow": { "next": "beat" } }, "enforcement": "app" },
+        "fantome":   { "label": "Contretemps suivant", "tempoPct": 0, "effects": { "beatWindow": { "next": "offbeat" } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "arpege-reflexe",
+      "name": "Arpège réflexe",
+      "constraint": "Jouer l'arpège de l'accord à partir de la note demandée",
+      "type": "intensity",
+      "exercises": ["MAN-03"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Triade", "tempoPct": 0, "effects": { "arpeggio": { "notes": 3, "octaves": 1, "roundTrip": false } }, "enforcement": "consigne" },
+        "street":    { "label": "Arpège 4 sons", "tempoPct": 0, "effects": { "arpeggio": { "notes": 4, "octaves": 1, "roundTrip": false } }, "enforcement": "consigne" },
+        "corpo":     { "label": "4 sons aller-retour", "tempoPct": 0, "effects": { "arpeggio": { "notes": 4, "octaves": 1, "roundTrip": true } }, "enforcement": "consigne" },
+        "prototype": { "label": "2 octaves", "tempoPct": 0, "effects": { "arpeggio": { "notes": 4, "octaves": 2, "roundTrip": false } }, "enforcement": "consigne" },
+        "fantome":   { "label": "2 octaves aller-retour", "tempoPct": 0, "effects": { "arpeggio": { "notes": 4, "octaves": 2, "roundTrip": true } }, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "extensions",
+      "name": "Extensions",
+      "constraint": "Les fonctions demandées sont des extensions (palier avancé)",
+      "type": "intensity",
+      "exercises": ["MAN-03"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": "man03-avance",
+      "levels": {
+        "recup":     { "label": "9", "tempoPct": 0, "effects": { "functions": ["9"] }, "enforcement": "app" },
+        "street":    { "label": "9, 11", "tempoPct": 0, "effects": { "functions": ["9", "11"] }, "enforcement": "app" },
+        "corpo":     { "label": "9, 11, 13", "tempoPct": 0, "effects": { "functions": ["9", "11", "13"] }, "enforcement": "app" },
+        "prototype": { "label": "+ b9, #9, #11", "tempoPct": 0, "effects": { "functions": ["9", "11", "13", "b9", "#9", "#11"] }, "enforcement": "app" },
+        "fantome":   { "label": "Altérations seules", "tempoPct": 0, "effects": { "functions": ["b9", "#9", "#11", "b13"] }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "fantome-clic",
+      "name": "Fantôme",
+      "constraint": "Clic raréfié",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "MOD-01", "IMP-01", "IMP-02", "IMP-03", "REP-01", "DEC-01", "DEC-02"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Clic sur 2 et 4 à -20 %", "tempoPct": -20, "effects": { "metronome": { "beats": [2, 4] } }, "enforcement": "app" },
+        "street":    { "label": "Clic sur 2 et 4", "tempoPct": 0, "effects": { "metronome": { "beats": [2, 4] } }, "enforcement": "app" },
+        "corpo":     { "label": "Clic sur 4", "tempoPct": 0, "effects": { "metronome": { "beats": [4] } }, "enforcement": "app" },
+        "prototype": { "label": "Clic sur le 1, une mesure sur deux", "tempoPct": 0, "effects": { "metronome": { "beats": [1], "everyNBars": 2 } }, "enforcement": "app" },
+        "fantome":   { "label": "Clic sur le 1, une mesure sur quatre", "tempoPct": 0, "effects": { "metronome": { "beats": [1], "everyNBars": 4 } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "silence-radio",
+      "name": "Silence radio",
+      "constraint": "Coupures aléatoires du clic",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "MOD-01", "IMP-01", "IMP-02", "IMP-03", "REP-01", "DEC-01", "DEC-02"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "1 mesure, rares", "tempoPct": 0, "effects": { "metronome": { "dropouts": { "min": 1, "max": 1, "chancePerBar": 0.1 } } }, "enforcement": "app" },
+        "street":    { "label": "1 à 2 mesures", "tempoPct": 0, "effects": { "metronome": { "dropouts": { "min": 1, "max": 2, "chancePerBar": 0.15 } } }, "enforcement": "app" },
+        "corpo":     { "label": "1 à 4 mesures", "tempoPct": 0, "effects": { "metronome": { "dropouts": { "min": 1, "max": 4, "chancePerBar": 0.2 } } }, "enforcement": "app" },
+        "prototype": { "label": "2 à 8 mesures", "tempoPct": 0, "effects": { "metronome": { "dropouts": { "min": 2, "max": 8, "chancePerBar": 0.25 } } }, "enforcement": "app" },
+        "fantome":   { "label": "Le clic ne revient qu'une mesure sur 8", "tempoPct": 0, "effects": { "metronome": { "everyNBars": 8 } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "skip-notes",
+      "name": "Skip notes",
+      "constraint": "Placer des skip notes (notes rythmiques ajoutées entre deux temps)",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Une toutes les 4 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "Une toutes les 2 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "Une par mesure", "tempoPct": 0, "enforcement": "consigne" },
+        "prototype": { "label": "Deux par mesure", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Deux par mesure à +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "fondamentale-interdite",
+      "name": "Fondamentale interdite",
+      "constraint": "Pas de fondamentale au premier temps : viser une autre note de l'accord",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "mixte",
+      "dropParams": [{ "key": "cible", "values": ["3ce", "5te", "7e"], "rarities": ["corpo"] }],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Une mesure sur deux", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "Toujours, cible libre", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "Cible tirée [3ce, 5te, 7e]", "tempoPct": 0, "enforcement": "consigne" },
+        "prototype": { "label": "Cible tirée qui change toutes les 4 mesures", "tempoPct": 0, "effects": { "liveAnnounce": { "kind": "cible", "everyBars": 4 } }, "enforcement": "app" },
+        "fantome":   { "label": "Ni au temps 1 ni au temps 3", "tempoPct": 0, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "encerclement",
+      "name": "Encerclement",
+      "constraint": "Encercler la note cible (approche par-dessus et par-dessous)",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "mixte",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Toutes les 4 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "Toutes les 2 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "Chaque mesure", "tempoPct": 0, "enforcement": "consigne" },
+        "prototype": { "label": "Chaque mesure, sens tiré", "tempoPct": 0, "effects": { "launchDraws": ["sens"] }, "enforcement": "app" },
+        "fantome":   { "label": "Deux par mesure", "tempoPct": 0, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "ascenseur",
+      "name": "Ascenseur",
+      "constraint": "Ligne qui parcourt le registre en montant puis en redescendant",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "1 octave en 4 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "2 octaves en 8 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "2 octaves en 4 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "prototype": { "label": "2 octaves aller-retour en 8 mesures", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Toute l'étendue", "tempoPct": 0, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "approche-chromatique",
+      "name": "Approche chromatique",
+      "constraint": "Approche chromatique de la fondamentale de l'accord suivant",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "mixte",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Une mesure sur deux, sens libre", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "Chaque mesure, sens libre", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "Chaque mesure, sens tiré", "tempoPct": 0, "effects": { "launchDraws": ["sens"] }, "enforcement": "app" },
+        "prototype": { "label": "Sens alterné à chaque mesure", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Sur les temps 3 et 4", "tempoPct": 0, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "dominante",
+      "name": "Dominante",
+      "constraint": "5te de l'accord suivant au 4e temps",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Une mesure sur deux à -20 %", "tempoPct": -20, "enforcement": "consigne" },
+        "street":    { "label": "Une mesure sur deux", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "Chaque mesure à -10 %", "tempoPct": -10, "enforcement": "consigne" },
+        "prototype": { "label": "Chaque mesure", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Chaque mesure à +10 %", "tempoPct": 10, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "transposition",
+      "name": "Transposition",
+      "constraint": "Jouer dans une autre tonalité, tirée par l'app",
+      "type": "intensity",
+      "exercises": ["WLK-02", "WLK-03", "IMP-02", "IMP-03", "REP-01", "DEC-01", "DEC-02"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Tonalité voisine (1 altération d'écart)", "tempoPct": 0, "effects": { "transpose": { "mode": "distance", "min": 1, "max": 1 } }, "enforcement": "app" },
+        "street":    { "label": "2 altérations d'écart", "tempoPct": 0, "effects": { "transpose": { "mode": "distance", "min": 2, "max": 2 } }, "enforcement": "app" },
+        "corpo":     { "label": "3 à 4 altérations d'écart", "tempoPct": 0, "effects": { "transpose": { "mode": "distance", "min": 3, "max": 4 } }, "enforcement": "app" },
+        "prototype": { "label": "Tonalité quelconque", "tempoPct": 0, "effects": { "transpose": { "mode": "any" } }, "enforcement": "app" },
+        "fantome":   { "label": "Nouvelle tonalité à chaque chorus", "tempoPct": 0, "effects": { "transpose": { "mode": "each_chorus" } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "two-feel",
+      "name": "Two-feel vers four",
+      "constraint": "Passer du two-feel au walking en 4",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "DEC-01"],
+      "enforcement": "mixte",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "2 chorus en two-feel, puis four", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "1 chorus de chaque", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "Bascule à mi-chorus", "tempoPct": 0, "enforcement": "consigne" },
+        "prototype": { "label": "Bascule annoncée au hasard par l'app", "tempoPct": 0, "effects": { "liveAnnounce": { "kind": "bascule-two-four", "randomBetweenBars": [4, 16] } }, "enforcement": "app" },
+        "fantome":   { "label": "Alternance toutes les 8 mesures", "tempoPct": 0, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "memoire-vive",
+      "name": "Mémoire vive",
+      "constraint": "Grille ou partition cachée",
+      "type": "intensity",
+      "exercises": ["WLK-02", "WLK-03", "IMP-02", "IMP-03", "REP-01"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Cachée après le 1er chorus", "tempoPct": 0, "effects": { "hide": { "mode": "after_first_chorus" } }, "enforcement": "app" },
+        "street":    { "label": "Vue 30 s avant", "tempoPct": 0, "effects": { "hide": { "mode": "preview", "seconds": 30 } }, "enforcement": "app" },
+        "corpo":     { "label": "Vue 10 s avant", "tempoPct": 0, "effects": { "hide": { "mode": "preview", "seconds": 10 } }, "enforcement": "app" },
+        "prototype": { "label": "Titre seul", "tempoPct": 0, "effects": { "hide": { "mode": "title_only" } }, "enforcement": "app" },
+        "fantome":   { "label": "Titre seul, tonalité tirée", "tempoPct": 0, "effects": { "hide": { "mode": "title_only", "randomKey": true } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "endurance",
+      "name": "Endurance",
+      "constraint": "Enchaîner plusieurs chorus sans s'arrêter",
+      "type": "intensity",
+      "exercises": ["WLK-01", "WLK-02", "WLK-03", "IMP-01", "IMP-02", "IMP-03", "REP-01", "DEC-01", "DEC-02"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "2 chorus", "tempoPct": 0, "effects": { "choruses": 2 }, "enforcement": "app" },
+        "street":    { "label": "3 chorus", "tempoPct": 0, "effects": { "choruses": 3 }, "enforcement": "app" },
+        "corpo":     { "label": "4 chorus", "tempoPct": 0, "effects": { "choruses": 4 }, "enforcement": "app" },
+        "prototype": { "label": "6 chorus", "tempoPct": 0, "effects": { "choruses": 6 }, "enforcement": "app" },
+        "fantome":   { "label": "8 chorus", "tempoPct": 0, "effects": { "choruses": 8 }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "etendue",
+      "name": "Étendue",
+      "constraint": "Dérouler le motif sur une étendue imposée",
+      "type": "intensity",
+      "exercises": ["MOD-01"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "1 octave", "tempoPct": 0, "enforcement": "consigne" },
+        "street":    { "label": "1,5 octave", "tempoPct": 0, "enforcement": "consigne" },
+        "corpo":     { "label": "2 octaves", "tempoPct": 0, "enforcement": "consigne" },
+        "prototype": { "label": "2 octaves aller-retour", "tempoPct": 0, "enforcement": "consigne" },
+        "fantome":   { "label": "Toute l'étendue aller-retour", "tempoPct": 0, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "retrograde",
+      "name": "Rétrograde",
+      "constraint": "Motif joué à l'envers",
+      "type": "intensity",
+      "exercises": ["MOD-01"],
+      "enforcement": "mixte",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "1 répétition sur 4", "tempoPct": 0, "effects": { "retrograde": { "oneIn": 4 } }, "enforcement": "consigne" },
+        "street":    { "label": "1 sur 3", "tempoPct": 0, "effects": { "retrograde": { "oneIn": 3 } }, "enforcement": "consigne" },
+        "corpo":     { "label": "1 sur 2", "tempoPct": 0, "effects": { "retrograde": { "oneIn": 2 } }, "enforcement": "consigne" },
+        "prototype": { "label": "Toutes", "tempoPct": 0, "effects": { "retrograde": { "oneIn": 1 } }, "enforcement": "consigne" },
+        "fantome":   { "label": "Sens tiré à chaque répétition, annoncé par l'app", "tempoPct": 0, "effects": { "retrograde": { "announced": true } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "densite",
+      "name": "Densité",
+      "constraint": "Subdivision imposée",
+      "type": "intensity",
+      "exercises": ["MOD-01"],
+      "enforcement": "consigne",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Croches à -30 %", "tempoPct": -30, "effects": { "noteValue": "croches" }, "enforcement": "consigne" },
+        "street":    { "label": "Croches à -20 %", "tempoPct": -20, "effects": { "noteValue": "croches" }, "enforcement": "consigne" },
+        "corpo":     { "label": "Croches à -10 %", "tempoPct": -10, "effects": { "noteValue": "croches" }, "enforcement": "consigne" },
+        "prototype": { "label": "Croches", "tempoPct": 0, "effects": { "noteValue": "croches" }, "enforcement": "consigne" },
+        "fantome":   { "label": "Triolets à -20 %", "tempoPct": -20, "effects": { "noteValue": "triolets" }, "enforcement": "consigne" }
+      }
+    },
+    {
+      "id": "cycle-quartes",
+      "name": "Cycle des quartes",
+      "constraint": "La tonique monte d'une quarte",
+      "type": "intensity",
+      "exercises": ["MOD-01"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Toutes les 8 mesures à -20 %", "tempoPct": -20, "effects": { "fourthsEveryBars": 8 }, "enforcement": "app" },
+        "street":    { "label": "Toutes les 8 mesures", "tempoPct": 0, "effects": { "fourthsEveryBars": 8 }, "enforcement": "app" },
+        "corpo":     { "label": "Toutes les 4 mesures", "tempoPct": 0, "effects": { "fourthsEveryBars": 4 }, "enforcement": "app" },
+        "prototype": { "label": "Toutes les 2 mesures", "tempoPct": 0, "effects": { "fourthsEveryBars": 2 }, "enforcement": "app" },
+        "fantome":   { "label": "À chaque mesure", "tempoPct": 0, "effects": { "fourthsEveryBars": 1 }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "palette-reduite",
+      "name": "Palette réduite",
+      "constraint": "Impro limitée à des notes tirées",
+      "type": "intensity",
+      "exercises": ["IMP-01", "IMP-02", "IMP-03"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "5 notes", "tempoPct": 0, "effects": { "paletteSize": 5 }, "enforcement": "app" },
+        "street":    { "label": "4 notes", "tempoPct": 0, "effects": { "paletteSize": 4 }, "enforcement": "app" },
+        "corpo":     { "label": "3 notes", "tempoPct": 0, "effects": { "paletteSize": 3 }, "enforcement": "app" },
+        "prototype": { "label": "2 notes", "tempoPct": 0, "effects": { "paletteSize": 2 }, "enforcement": "app" },
+        "fantome":   { "label": "1 note", "tempoPct": 0, "effects": { "paletteSize": 1 }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "question-reponse",
+      "name": "Question-réponse",
+      "constraint": "Alternance jeu et silence",
+      "type": "intensity",
+      "exercises": ["IMP-01", "IMP-02", "IMP-03"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "4 mesures / 4 à -20 %", "tempoPct": -20, "effects": { "callResponse": { "bars": 4 } }, "enforcement": "app" },
+        "street":    { "label": "4 mesures / 4", "tempoPct": 0, "effects": { "callResponse": { "bars": 4 } }, "enforcement": "app" },
+        "corpo":     { "label": "2 mesures / 2", "tempoPct": 0, "effects": { "callResponse": { "bars": 2 } }, "enforcement": "app" },
+        "prototype": { "label": "1 mesure / 1", "tempoPct": 0, "effects": { "callResponse": { "bars": 1 } }, "enforcement": "app" },
+        "fantome":   { "label": "1 / 1, la réponse reprend le rythme de la question", "tempoPct": 0, "effects": { "callResponse": { "bars": 1, "echoRhythm": true } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "motif-impose",
+      "name": "Motif imposé",
+      "constraint": "Un motif rythmique de 2 temps à développer",
+      "type": "intensity",
+      "exercises": ["IMP-01", "IMP-02", "IMP-03"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": null,
+      "levels": {
+        "recup":     { "label": "Sur 4 mesures", "tempoPct": 0, "effects": { "rhythmMotifSpan": { "bars": 4 } }, "enforcement": "app" },
+        "street":    { "label": "Sur 8 mesures", "tempoPct": 0, "effects": { "rhythmMotifSpan": { "bars": 8 } }, "enforcement": "app" },
+        "corpo":     { "label": "Sur 1 chorus", "tempoPct": 0, "effects": { "rhythmMotifSpan": { "choruses": 1 } }, "enforcement": "app" },
+        "prototype": { "label": "Sur 2 chorus", "tempoPct": 0, "effects": { "rhythmMotifSpan": { "choruses": 2 } }, "enforcement": "app" },
+        "fantome":   { "label": "Tout le bloc", "tempoPct": 0, "effects": { "rhythmMotifSpan": { "wholeBlock": true } }, "enforcement": "app" }
+      }
+    },
+    {
+      "id": "overclock",
+      "name": "Overclock",
+      "constraint": "Passage joué au-dessus de son tempo de référence (palier « fiable » requis)",
+      "type": "intensity",
+      "exercises": ["REP-01"],
+      "enforcement": "app",
+      "dropParams": [],
+      "unlock": "rep-fiable",
+      "levels": {
+        "recup":     { "label": "+3 %", "tempoPct": 3, "enforcement": "app" },
+        "street":    { "label": "+5 %", "tempoPct": 5, "enforcement": "app" },
+        "corpo":     { "label": "+8 %", "tempoPct": 8, "enforcement": "app" },
+        "prototype": { "label": "+10 %", "tempoPct": 10, "enforcement": "app" },
+        "fantome":   { "label": "+15 %", "tempoPct": 15, "enforcement": "app" }
+      }
+    }
+  ]
+}
